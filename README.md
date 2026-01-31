@@ -2,6 +2,8 @@
 
 **Architectures d'Intégration — Du Couplage Fort au Découplage Maximal**
 
+> Consulter le site : [agbruneau.github.io/EcosystemeInteroperabiliteAgentique](https://agbruneau.github.io/EcosystemeInteroperabiliteAgentique/)
+
 Publication professionnelle couvrant l'ensemble du spectre de l'interopérabilité des systèmes d'entreprise : des intégrations traditionnelles point-à-point jusqu'aux architectures agentiques pilotées par l'IA. Le contenu est structuré en 12 chapitres et 5 volumes consolidés, publié sous forme de site statique HTML.
 
 ## Thèse centrale
@@ -30,19 +32,21 @@ Apache Kafka, RabbitMQ, Apache Pulsar, Apache Iceberg, PostgreSQL, MongoDB, Clic
 ## Structure du projet
 
 ```
-├── Chapitres/          # Fichiers sources Markdown (12 chapitres + 5 volumes + annexes)
-├── templates/          # Templates HTML (accueil et chapitres)
-├── public/             # Assets sources (Poster, Présentation PDF, Podcast)
-├── build.js            # Script de génération des pages HTML
-├── chapters.json       # Métadonnées des chapitres et volumes (titres, slugs, catégories)
-├── package.json        # Dépendances Node.js
-└── docs/               # Pages HTML générées (output du build)
-    └── public/         # Copie des assets statiques
+├── Chapitres/              # Fichiers sources Markdown (12 chapitres + 5 volumes + annexes)
+├── templates/              # Templates HTML (accueil et chapitres)
+├── public/                 # Assets sources (Posters, Présentation PDF, Podcast)
+├── .github/workflows/      # Workflow GitHub Actions (build + déploiement)
+├── build.js                # Script de génération des pages HTML
+├── chapters.json           # Métadonnées des chapitres et volumes (titres, slugs, catégories)
+├── package.json            # Dépendances Node.js
+├── .gitignore              # Exclusions Git (node_modules)
+└── docs/                   # Pages HTML générées (output du build)
+    └── public/             # Copie des assets statiques
 ```
 
 ## Prérequis
 
-- [Node.js](https://nodejs.org/) version 18 ou supérieure
+- [Node.js](https://nodejs.org/) version 20 ou supérieure
 
 ## Installation
 
@@ -90,7 +94,9 @@ Toutes les pages sont des fichiers HTML statiques autonomes. Aucun serveur Web n
 
 ## Déploiement GitHub Pages
 
-Le site se déploie automatiquement via GitHub Actions à chaque push sur la branche `master`. Le workflow (`.github/workflows/deploy.yml`) exécute le build puis publie le contenu de `docs/` sur GitHub Pages.
+Le site se déploie automatiquement via GitHub Actions à chaque push sur la branche `master`. Le workflow ([`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)) exécute le build puis publie le contenu de `docs/` sur GitHub Pages.
+
+Le site est accessible à l'adresse : https://agbruneau.github.io/EcosystemeInteroperabiliteAgentique/
 
 ## Contenu
 
