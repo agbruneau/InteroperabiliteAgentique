@@ -5,13 +5,14 @@ Architectures d'Intégration — Du Couplage Fort au Découplage Maximal
 ## Structure du projet
 
 ```
-├── Chapitres/          # Fichiers sources Markdown (12 chapitres + annexes)
+├── Chapitres/          # Fichiers sources Markdown (12 chapitres + 5 volumes + annexes)
 ├── templates/          # Templates HTML (accueil et chapitres)
+├── public/             # Assets sources (Poster, Présentation PDF, Podcast)
 ├── build.js            # Script de génération des pages HTML
-├── chapters.json       # Métadonnées des chapitres (titres, slugs, catégories)
+├── chapters.json       # Métadonnées des chapitres et volumes (titres, slugs, catégories)
 ├── package.json        # Dépendances Node.js
 └── docs/               # Pages HTML générées (output du build)
-    └── public/         # Assets statiques (Posters, Présentation PDF, Podcast)
+    └── public/         # Copie des assets statiques
 ```
 
 ## Prérequis
@@ -68,6 +69,8 @@ Le site se déploie automatiquement via GitHub Actions à chaque push sur la bra
 
 ## Contenu
 
+### Chapitres — Intégration
+
 | Chapitre | Sujet                             |
 | -------- | --------------------------------- |
 | I        | Introduction et Problématique    |
@@ -83,15 +86,25 @@ Le site se déploie automatiquement via GitHub Actions à chaque push sur la bra
 | XI       | L'Entreprise Agentique            |
 | —       | Annexes                           |
 
+### Volumes — Entreprise Agentique
+
+| Volume | Sujet                                  |
+| ------ | -------------------------------------- |
+| I      | Fondations de l'Entreprise Agentique   |
+| II     | Infrastructure Agentique               |
+| III    | Apache Kafka : Guide de l'Architecte   |
+| IV     | Apache Iceberg : Lakehouse             |
+| V      | Le Développeur Renaissance             |
+
 ## Ressources complémentaires
 
 La page d'accueil donne accès aux ressources suivantes :
 
 - **Présentation (PDF)** — Diaporama synthétique du contenu
 - **Podcast (M4A)** — Version audio de la présentation
-- **Poster — Le Continuum d'Intégration** — Vue d'ensemble visuelle (SVG)
+- **Poster** — Blueprint de l'Entreprise Moderne
 
-Ces fichiers se trouvent dans `docs/public/`.
+Ces fichiers se trouvent dans `public/` (copiés dans `docs/public/` lors du build).
 
 ## Ajouter ou modifier un chapitre
 
