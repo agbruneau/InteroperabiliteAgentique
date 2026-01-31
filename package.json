@@ -1,0 +1,12 @@
+{
+  "name": "interoperabilite",
+  "version": "1.0.0",
+  "description": "Interopérabilité en Écosystème d'Entreprise — Site Web statique",
+  "private": true,
+  "scripts": {
+    "build": "node build.js"
+  },
+  "dependencies": {
+    "marked": "^15.0.0"
+  }
+}

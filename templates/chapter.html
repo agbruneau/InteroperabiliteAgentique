@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{TITLE}} | Interopérabilité en Écosystème d'Entreprise</title>
+  <style>
+    :root {
+      --color-bg: #0f0f0f;
+      --color-surface: #1a1a1a;
+      --color-surface-alt: #222222;
+      --color-text: #e0e0e0;
+      --color-text-muted: #9ca3af;
+      --color-heading: #f5f5f5;
+      --color-link: #60a5fa;
+      --color-link-hover: #93c5fd;
+      --color-border: #2e2e2e;
+      --color-code-bg: #1e1e2e;
+      --color-blockquote-bg: #1c1a0e;
+      --color-blockquote-border: #d97706;
+      --color-blockquote-text: #fbbf24;
+      --color-table-header: #252525;
+      --color-table-stripe: #1e1e1e;
+      --max-width: 52rem;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: var(--color-bg);
+      color: var(--color-text);
+      line-height: 1.75;
+      font-size: 1.05rem;
+    }
+
+    header {
+      background: #111111;
+      color: #f5f5f5;
+      padding: 1rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.5);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    header .header-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header a {
+      color: #f5f5f5;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    header a:hover { color: var(--color-link); }
+
+    .sidebar-toggle {
+      display: none;
+      background: none;
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #f5f5f5;
+      padding: 0.4rem 0.8rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .layout {
+      display: flex;
+      max-width: 72rem;
+      margin: 0 auto;
+      min-height: calc(100vh - 60px);
+    }
+
+    aside {
+      width: 18rem;
+      flex-shrink: 0;
+      padding: 1.5rem 1rem;
+      border-right: 1px solid var(--color-border);
+      background: var(--color-surface);
+      position: sticky;
+      top: 60px;
+      height: calc(100vh - 60px);
+      overflow-y: auto;
+    }
+
+    aside h3 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    aside ul { list-style: none; }
+
+    aside li {
+      margin-bottom: 0.35rem;
+    }
+
+    aside a {
+      color: var(--color-text);
+      text-decoration: none;
+      font-size: 0.88rem;
+      display: block;
+      padding: 0.3rem 0.5rem;
+      border-radius: 4px;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    aside a:hover { background: var(--color-surface-alt); color: var(--color-link); }
+
+    main {
+      flex: 1;
+      min-width: 0;
+      padding: 2.5rem 3rem;
+    }
+
+    .chapter-content {
+      max-width: var(--max-width);
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      color: var(--color-heading);
+      border-bottom: 3px solid var(--color-link);
+      padding-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--color-heading);
+      border-bottom: 1px solid var(--color-border);
+      padding-bottom: 0.3rem;
+    }
+
+    h3 {
+      font-size: 1.2rem;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+      color: var(--color-heading);
+    }
+
+    h4 {
+      font-size: 1.05rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--color-heading);
+    }
+
+    p { margin-bottom: 1rem; }
+
+    a { color: var(--color-link); }
+    a:hover { color: var(--color-link-hover); }
+
+    blockquote {
+      background: var(--color-blockquote-bg);
+      border-left: 4px solid var(--color-blockquote-border);
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+      border-radius: 0 6px 6px 0;
+    }
+
+    blockquote p:last-child { margin-bottom: 0; }
+
+    blockquote strong:first-child {
+      display: block;
+      margin-bottom: 0.3rem;
+      color: var(--color-blockquote-text);
+    }
+
+    pre {
+      background: #11111b;
+      color: #cdd6f4;
+      padding: 1.25rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      font-size: 0.88rem;
+      line-height: 1.5;
+      border: 1px solid var(--color-border);
+    }
+
+    code {
+      background: var(--color-code-bg);
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      font-size: 0.9em;
+      font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+      color: #a6e3a1;
+    }
+
+    pre code {
+      background: none;
+      padding: 0;
+      font-size: inherit;
+      color: inherit;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.92rem;
+    }
+
+    th {
+      background: var(--color-table-header);
+      color: #f5f5f5;
+      text-align: left;
+      padding: 0.6rem 0.8rem;
+      font-weight: 600;
+      border-bottom: 2px solid var(--color-link);
+    }
+
+    td {
+      padding: 0.55rem 0.8rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    tr:nth-child(even) { background: var(--color-table-stripe); }
+
+    ul, ol {
+      margin-bottom: 1rem;
+      padding-left: 1.5rem;
+    }
+
+    li { margin-bottom: 0.3rem; }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--color-border);
+      margin: 2.5rem 0;
+    }
+
+    em { font-style: italic; }
+    strong { font-weight: 600; color: #f5f5f5; }
+
+    .chapter-nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .nav-link {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: var(--color-link);
+      color: #0f0f0f;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      transition: background 0.15s;
+    }
+
+    .nav-link:hover { background: var(--color-link-hover); color: #0f0f0f; }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      color: var(--color-text-muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--color-border);
+    }
+
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--color-bg); }
+    ::-webkit-scrollbar-thumb { background: #444; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #555; }
+
+    @media (max-width: 768px) {
+      .sidebar-toggle { display: block; }
+
+      aside {
+        position: fixed;
+        left: -100%;
+        top: 60px;
+        height: calc(100vh - 60px);
+        z-index: 50;
+        transition: left 0.3s;
+        box-shadow: 4px 0 16px rgba(0,0,0,0.4);
+      }
+
+      aside.open { left: 0; }
+
+      main {
+        padding: 1.5rem 1.25rem;
+      }
+
+      h1 { font-size: 1.5rem; }
+      h2 { font-size: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="index.html">Interopérabilité en Écosystème d'Entreprise</a>
+      <button class="sidebar-toggle" onclick="document.querySelector('aside').classList.toggle('open')">
+        &#9776; Chapitres
+      </button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside>
+      <h3>Table des matières</h3>
+      <ul>
+{{SIDEBAR}}
+      </ul>
+    </aside>
+
+    <main>
+      <div class="chapter-content">
+{{CONTENT}}
+      </div>
+
+      <div class="chapter-nav">
+{{PREV_LINK}}
+{{NEXT_LINK}}
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    &copy; 2026 — Interopérabilité en Écosystème d'Entreprise : Convergence des Architectures d'Intégration
+  </footer>
+</body>
+</html>

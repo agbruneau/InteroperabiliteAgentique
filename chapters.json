@@ -1,0 +1,113 @@
+[
+  {
+    "source": "01_Introduction_Problematique.md",
+    "slug": "01-introduction",
+    "roman": "I",
+    "title": "Chapitre I — Introduction et Problématique",
+    "shortTitle": "I. Introduction et Problématique",
+    "category": "transversal",
+    "color": "#6b7280"
+  },
+  {
+    "source": "02_Fondements_Theoriques.md",
+    "slug": "02-fondements",
+    "roman": "II",
+    "title": "Chapitre II — Fondements Théoriques",
+    "shortTitle": "II. Fondements Théoriques",
+    "category": "transversal",
+    "color": "#6b7280"
+  },
+  {
+    "source": "03_Integration_Applications.md",
+    "slug": "03-applications",
+    "roman": "III",
+    "title": "Chapitre III — Intégration des Applications",
+    "shortTitle": "III. Intégration des Applications",
+    "category": "applications",
+    "color": "#2563eb",
+    "badge": "Applications"
+  },
+  {
+    "source": "04_Integration_Donnees.md",
+    "slug": "04-donnees",
+    "roman": "IV",
+    "title": "Chapitre IV — Intégration des Données",
+    "shortTitle": "IV. Intégration des Données",
+    "category": "donnees",
+    "color": "#059669",
+    "badge": "Données"
+  },
+  {
+    "source": "05_Integration_Evenements.md",
+    "slug": "05-evenements",
+    "roman": "V",
+    "title": "Chapitre V — Intégration des Événements",
+    "shortTitle": "V. Intégration des Événements",
+    "category": "evenements",
+    "color": "#d97706",
+    "badge": "Événements"
+  },
+  {
+    "source": "06_Standards_Contrats.md",
+    "slug": "06-standards",
+    "roman": "VI",
+    "title": "Chapitre VI — Standards et Contrats d'Interface",
+    "shortTitle": "VI. Standards et Contrats d'Interface",
+    "category": "transversal",
+    "color": "#6b7280"
+  },
+  {
+    "source": "07_Resilience_Observabilite.md",
+    "slug": "07-resilience",
+    "roman": "VII",
+    "title": "Chapitre VII — Résilience et Observabilité",
+    "shortTitle": "VII. Résilience et Observabilité",
+    "category": "transversal",
+    "color": "#6b7280"
+  },
+  {
+    "source": "08_Collaboration_Automatisation.md",
+    "slug": "08-collaboration",
+    "roman": "VIII",
+    "title": "Chapitre VIII — Collaboration et Automatisation",
+    "shortTitle": "VIII. Collaboration et Automatisation",
+    "category": "transversal",
+    "color": "#6b7280"
+  },
+  {
+    "source": "09_Architecture_Reference.md",
+    "slug": "09-architecture",
+    "roman": "IX",
+    "title": "Chapitre IX — Architecture de Référence",
+    "shortTitle": "IX. Architecture de Référence",
+    "category": "transversal",
+    "color": "#6b7280"
+  },
+  {
+    "source": "10_Order_to_Cash.md",
+    "slug": "10-order-to-cash",
+    "roman": "X",
+    "title": "Chapitre X — Étude de Cas : Order-to-Cash",
+    "shortTitle": "X. Étude de Cas : Order-to-Cash",
+    "category": "transversal",
+    "color": "#6b7280"
+  },
+  {
+    "source": "11_Entreprise_Agentique.md",
+    "slug": "11-entreprise-agentique",
+    "roman": "XI",
+    "title": "Chapitre XI — L'Entreprise Agentique",
+    "shortTitle": "XI. L'Entreprise Agentique",
+    "category": "transversal",
+    "color": "#6b7280"
+  },
+  {
+    "source": "Annexes.md",
+    "slug": "annexes",
+    "roman": "",
+    "title": "Annexes",
+    "shortTitle": "Annexes",
+    "category": "transversal",
+    "color": "#6b7280"
+  }
+]
