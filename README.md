@@ -3,7 +3,6 @@
 **Architectures d'Intégration — Du Couplage Fort au Découplage Maximal**
 
 [![Node.js](https://img.shields.io/badge/Node.js-20+-green.svg)](https://nodejs.org/)
-[![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-blue.svg)](https://agbruneau.github.io/InteroperabiliteAgentique/)
 
 > Consulter le site : [agbruneau.github.io/InteroperabiliteAgentique](https://agbruneau.github.io/InteroperabiliteAgentique/)
 
@@ -38,7 +37,6 @@ Apache Kafka, RabbitMQ, Apache Pulsar, Apache Iceberg, PostgreSQL, MongoDB, Clic
 ├── Chapitres/              # Fichiers sources Markdown (12 chapitres + 5 volumes + annexes)
 ├── templates/              # Templates HTML (accueil et chapitres)
 ├── public/                 # Assets sources (Posters, Présentation PDF, Podcast)
-├── .github/workflows/      # Workflow GitHub Actions (build + déploiement)
 ├── build.js                # Script de génération des pages HTML
 ├── chapters.json           # Métadonnées des chapitres et volumes (titres, slugs, catégories)
 ├── package.json            # Dépendances Node.js
@@ -102,12 +100,6 @@ npx serve docs
 ```
 
 Puis ouvrir http://localhost:3000 dans le navigateur.
-
-## Déploiement GitHub Pages
-
-Le site se déploie automatiquement via GitHub Actions à chaque push sur la branche `master`. Le workflow ([`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)) exécute le build puis publie le contenu de `docs/` sur GitHub Pages.
-
-Le site est accessible à l'adresse : https://agbruneau.github.io/InteroperabiliteAgentique/
 
 ## Contenu
 
