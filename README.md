@@ -1,4 +1,4 @@
-# Écosystème et Interopérabilité Agentique
+# Interopérabilité et Agentique
 
 **Architectures d'Intégration — Du Couplage Fort au Découplage Maximal**
 
@@ -130,13 +130,13 @@ Le site est accessible à l'adresse : https://agbruneau.github.io/Interoperabili
 
 ### Volumes — Entreprise Agentique
 
-| Volume | Sujet                                  |
-| ------ | -------------------------------------- |
-| I      | Fondations de l'Entreprise Agentique   |
-| II     | Infrastructure Agentique               |
-| III    | Apache Kafka : Guide de l'Architecte   |
-| IV     | Apache Iceberg : Lakehouse             |
-| V      | Le Développeur Renaissance             |
+| Volume | Sujet                                |
+| ------ | ------------------------------------ |
+| I      | Fondations de l'Entreprise Agentique |
+| II     | Infrastructure Agentique             |
+| III    | Apache Kafka : Guide de l'Architecte |
+| IV     | Apache Iceberg : Lakehouse           |
+| V      | Le Développeur Renaissance          |
 
 ## Ressources complémentaires
 
@@ -144,7 +144,7 @@ La page d'accueil donne accès aux ressources suivantes :
 
 - **Présentation (PDF)** — Diaporama synthétique du contenu
 - **Podcast (M4A)** — Version audio de la présentation
-- **Posters** — Blueprints de l'Entreprise Moderne (Poster 1 et Poster 2)
+- **Posters** — Blueprints de l'Entreprise Moderne (Poster 1, Poster 2, Poster 3 et Poster 4)
 
 Ces fichiers se trouvent dans `public/` (copiés dans `docs/public/` lors du build).
 
