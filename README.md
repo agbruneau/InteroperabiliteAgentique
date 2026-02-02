@@ -35,6 +35,7 @@ Apache Kafka, RabbitMQ, Apache Pulsar, Apache Iceberg, PostgreSQL, MongoDB, Clic
 ├── Chapitres/              # Fichiers sources Markdown (12 chapitres + 5 volumes + annexes)
 ├── templates/              # Templates HTML (accueil et chapitres)
 ├── chapters.json           # Métadonnées des chapitres et volumes (titres, slugs, catégories)
+├── build.js                # Script de génération des pages HTML
 ├── package.json            # Dépendances Node.js
 ├── .gitignore              # Exclusions Git (node_modules)
 └── docs/                   # Pages HTML générées (servies par GitHub Pages)
@@ -113,7 +114,8 @@ La page d'accueil donne accès aux ressources suivantes :
 
 1. Modifier le fichier Markdown correspondant dans `Chapitres/`
 2. Si un nouveau chapitre est ajouté, mettre à jour `chapters.json`
-3. Régénérer les pages HTML et les commiter dans `docs/`
+3. Régénérer les pages HTML : `npm run build`
+4. Commiter les fichiers sources et le répertoire `docs/`, puis pousser sur `master`
 
 ## Public cible
 
