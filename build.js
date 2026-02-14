@@ -1,10 +1,10 @@
-// build.js — Génère docs/*.html à partir de Chapitres/*.md + templates + chapters.json
+// build.js — Génère docs/*.html à partir de Chapitres-Volumes/*.md + templates + chapters.json
 const fs = require('fs');
 const path = require('path');
 const { marked } = require('marked');
 
 const ROOT = __dirname;
-const CHAPTERS_DIR = path.join(ROOT, 'Chapitres');
+const CHAPTERS_DIR = path.join(ROOT, 'Chapitres-Volumes');
 const TEMPLATES_DIR = path.join(ROOT, 'templates');
 const DOCS_DIR = path.join(ROOT, 'docs');
 const PUBLIC_SRC = path.join(ROOT, 'public');
