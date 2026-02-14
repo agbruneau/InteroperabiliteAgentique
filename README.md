@@ -4,7 +4,7 @@
 
 > Consulter le site : [agbruneau.github.io/InteroperabiliteAgentique](https://agbruneau.github.io/InteroperabiliteAgentique/)
 
-Publication professionnelle couvrant l'ensemble du spectre de l'interopérabilité des systèmes d'entreprise : des intégrations traditionnelles point-à-point jusqu'aux architectures agentiques pilotées par l'IA. Le contenu est structuré en 12 chapitres et 5 volumes consolidés, publié sous forme de site statique HTML.
+Publication professionnelle couvrant l'ensemble du spectre de l'interopérabilité des systèmes d'entreprise : des intégrations traditionnelles point-à-point jusqu'aux architectures agentiques pilotées par l'IA. Le contenu est structuré en 11 chapitres et des annexes, publié sous forme de site statique HTML.
 
 ## Thèse centrale
 
@@ -45,9 +45,9 @@ Apache Kafka, RabbitMQ, Apache Pulsar, Apache Iceberg, PostgreSQL, MongoDB, Clic
 ## Structure du projet
 
 ```
-├── Chapitres-Volumes/      # Fichiers sources Markdown (11 chapitres + annexes + 5 volumes)
+├── Chapitres-Volumes/      # Fichiers sources Markdown (11 chapitres + annexes)
 ├── templates/              # Templates HTML (accueil et chapitres)
-├── chapters.json           # Métadonnées des chapitres et volumes (titres, slugs, catégories)
+├── chapters.json           # Métadonnées des chapitres (titres, slugs, catégories)
 ├── build.js                # Script de génération des pages HTML
 ├── package.json            # Dépendances Node.js
 ├── .gitignore              # Exclusions Git (node_modules)
@@ -99,16 +99,6 @@ Puis ouvrir http://localhost:3000 dans le navigateur.
 | XI       | L'Entreprise Agentique            |
 | —       | Annexes                           |
 
-### Volumes — Entreprise Agentique
-
-| Volume | Sujet                                |
-| ------ | ------------------------------------ |
-| I      | Fondations de l'Entreprise Agentique |
-| II     | Infrastructure Agentique             |
-| III    | Apache Kafka : Guide de l'Architecte |
-| IV     | Apache Iceberg : Lakehouse           |
-| V      | Le Développeur Renaissance          |
-
 ## Architecte assisté des outils IA
 
 La page d'accueil inclut un document de référence sur la stratégie d'outillage IA, structuré autour de six rôles spécialisés et un processus en six phases.
@@ -141,7 +131,7 @@ La page d'accueil donne accès aux ressources suivantes :
 - **[Agentique (PDF)](https://agbruneau.github.io/InteroperabiliteAgentique/public/Agentique.pdf)** — Présentation sur l'entreprise agentique
 - **[Monographie — L'Entreprise Agentique (PDF)](https://agbruneau.github.io/InteroperabiliteAgentique/public/Monographie%20-%20Entreprise%20Agentique.pdf)** — Monographie complète sur l'entreprise agentique
 - **[Podcast (M4A)](https://agbruneau.github.io/InteroperabiliteAgentique/public/PodCast.m4a)** — Version audio de la présentation
-- **Posters** — Blueprints de l'Entreprise Moderne (Poster 1 à 5)
+- **Posters** — Blueprints de l'Entreprise Moderne (Poster 1 à 6)
 
 ## Projets connexes
 
