@@ -71,7 +71,7 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 
 ## Overview
 
-Static site generator (Node.js + `marked`) for a French-language publication on enterprise interoperability and agentic architecture. 11 chapters (I–XI) + annexes + 5 consolidated volumes are converted from Markdown to standalone HTML pages and deployed to GitHub Pages.
+Static site generator (Node.js + `marked`) for a French-language publication on enterprise interoperability and agentic architecture. 11 chapters (I–XI) + annexes are converted from Markdown to standalone HTML pages and deployed to GitHub Pages.
 
 All content is in **French**. Commit messages and code comments should be in French.
 
@@ -92,7 +92,7 @@ No test or lint commands. No CI/CD pipeline — deploy by pushing generated `doc
 **Pipeline:** `Chapitres-Volumes/*.md` + `templates/*.html` + `chapters.json` → `build.js` → `docs/*.html`
 
 - **`build.js`** — Parses Markdown (GFM via `marked`), extracts h2 headings for sidebar TOC, adds anchor IDs, generates prev/next navigation per chapter/volume group, copies `public/` assets to `docs/public/`.
-- **`chapters.json`** — Ordered array of 17 entry metadata objects. Must be updated when adding a chapter. Schema per entry:
+- **`chapters.json`** — Ordered array of 12 entry metadata objects. Must be updated when adding a chapter. Schema per entry:
   - `source`: Markdown filename in `Chapitres-Volumes/`
   - `slug`: URL-safe identifier (used for output filename `{slug}.html`)
   - `roman`: Roman numeral (empty string for annexes)
@@ -100,7 +100,6 @@ No test or lint commands. No CI/CD pipeline — deploy by pushing generated `doc
   - `category`: `transversal` | `applications` | `donnees` | `evenements` | `volume`
   - `color`: Hex color for the category
   - `badge` (optional): Label shown on cards
-  - `type` (optional): `"volume"` for consolidated volumes
 - **`templates/index.html`** — Homepage template. Placeholder: `{{CHAPTERS_GRID}}`. Contains hero section, resource links (PDF, podcast), poster sections, interoperability levels, AI tooling section. Google Fonts: DM Serif Display + DM Sans.
 - **`templates/chapter.html`** — Content page template. Placeholders: `{{TITLE}}`, `{{SIDEBAR}}`, `{{CONTENT}}`, `{{PREV_LINK}}`, `{{NEXT_LINK}}`. Two-column layout with sticky sidebar TOC.
 - **`docs/`** — Generated output, committed to repo for GitHub Pages. Do not edit manually.

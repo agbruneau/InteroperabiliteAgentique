@@ -56,9 +56,6 @@ function slugify(text) {
     .replace(/^-|-$/g, '');
 }
 
-// Exclure les volumes (type: "volume") de la génération
-const normalChapters = chapters.filter(c => c.type !== 'volume');
-
 // --- Générer la page d'accueil ---
 
 function buildCardHtml(ch) {
@@ -74,7 +71,7 @@ function buildCardHtml(ch) {
       </a>`;
 }
 
-const chaptersGridHtml = normalChapters.map(buildCardHtml).join('\n\n');
+const chaptersGridHtml = chapters.map(buildCardHtml).join('\n\n');
 
 const indexHtml = indexTemplate
   .replace('{{CHAPTERS_GRID}}', chaptersGridHtml);
@@ -84,9 +81,9 @@ console.log('index.html généré');
 
 // --- Générer les pages de chapitres ---
 
-const navGroups = [normalChapters];
+const navGroups = [chapters];
 
-for (const ch of normalChapters) {
+for (const ch of chapters) {
   const mdPath = path.join(CHAPTERS_DIR, ch.source);
   if (!fs.existsSync(mdPath)) {
     console.warn(`ATTENTION: ${ch.source} introuvable, ignoré`);
@@ -126,13 +123,13 @@ for (const ch of normalChapters) {
 
   if (group && idx > 0) {
     const prev = group[idx - 1];
-    const label = prev.type === 'volume' ? `Vol. ${prev.roman}` : (prev.roman ? `Ch. ${prev.roman}` : prev.shortTitle);
+    const label = prev.roman ? `Ch. ${prev.roman}` : prev.shortTitle;
     prevHtml = `        <a href="${prev.slug}.html" class="nav-link">&larr; ${label}</a>`;
   }
 
   if (group && idx < group.length - 1) {
     const next = group[idx + 1];
-    const label = next.type === 'volume' ? `Vol. ${next.roman}` : (next.roman ? `Ch. ${next.roman}` : next.shortTitle);
+    const label = next.roman ? `Ch. ${next.roman}` : next.shortTitle;
     nextHtml = `        <a href="${next.slug}.html" class="nav-link">${label} &rarr;</a>`;
   }
 
