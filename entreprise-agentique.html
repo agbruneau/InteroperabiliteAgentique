@@ -4,154 +4,290 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Entreprise Agentique — Quand l'IA passe de l'assistance à l'action autonome</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#0a0a0f;--bg2:#12121a;--bg3:#1a1a28;--bg4:#222236;
-  --text:#e4e4ef;--text2:#a0a0b8;--text3:#6e6e8a;
-  --accent:#6c5ce7;--accent2:#a29bfe;--accent3:#00cec9;
-  --grad1:linear-gradient(135deg,#6c5ce7,#00cec9);
-  --grad2:linear-gradient(135deg,#6c5ce7 0%,#a29bfe 50%,#00cec9 100%);
-  --radius:12px;--radius-lg:20px;
+  --bg:#030712;--bg2:#0a0f1e;--bg3:#111827;
+  --bg-card:rgba(15,23,42,0.5);
+  --text:#f1f5f9;--text2:#94a3b8;--text3:#64748b;
+  --cyan:#22d3ee;--blue:#3b82f6;--indigo:#818cf8;--purple:#a78bfa;
+  --magenta:#e879f9;--rose:#fb7185;--orange:#fb923c;--amber:#fbbf24;
+  --green:#34d399;--teal:#2dd4bf;
+  --grad-hero:linear-gradient(135deg,#0ea5e9,#8b5cf6,#ec4899);
+  --radius:14px;--radius-lg:22px;
 }
 html{scroll-behavior:smooth;font-size:16px}
-body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;overflow-x:hidden}
-a{color:var(--accent2);text-decoration:none;transition:color .2s}
-a:hover{color:var(--accent3)}
+body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden}
+a{color:var(--cyan);text-decoration:none;transition:all .25s ease}
+a:hover{color:var(--blue)}
+section[id]{scroll-margin-top:80px}
+
+/* ── PROGRESS BAR ── */
+.progress-bar{position:fixed;top:0;left:0;height:3px;background:var(--grad-hero);z-index:200;width:0}
 
 /* ── NAV ── */
-nav{position:fixed;top:0;width:100%;z-index:100;background:rgba(10,10,15,.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(108,92,231,.15)}
-nav .inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.9rem 2rem}
-nav .logo{font-weight:700;font-size:1.15rem;background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-nav ul{display:flex;gap:1.8rem;list-style:none}
-nav a{color:var(--text2);font-size:.88rem;font-weight:500;transition:color .2s}
-nav a:hover{color:#fff}
+nav{position:fixed;top:3px;width:100%;z-index:100;background:rgba(3,7,18,.75);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(148,163,184,.06)}
+nav .inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:1rem 2rem}
+.logo{font-family:'Sora',sans-serif;font-weight:700;font-size:1.1rem;background:var(--grad-hero);-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:-.02em}
+nav ul{display:flex;gap:2rem;list-style:none}
+nav a{color:var(--text2);font-size:.85rem;font-weight:500;letter-spacing:.01em;position:relative;padding:.25rem 0}
+nav a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--cyan);border-radius:1px;transition:width .3s ease}
+nav a:hover{color:var(--text)}
+nav a:hover::after,nav a.active::after{width:100%}
+nav a.active{color:var(--cyan)}
+.menu-toggle{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.menu-toggle span{display:block;width:22px;height:2px;background:var(--text2);border-radius:2px;transition:all .3s ease}
 
 /* ── HERO ── */
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:8rem 2rem 4rem;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(108,92,231,.18),transparent 70%);top:-100px;right:-150px;pointer-events:none}
-.hero::after{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(0,206,201,.12),transparent 70%);bottom:-80px;left:-120px;pointer-events:none}
-.hero h1{font-size:clamp(2.4rem,5.5vw,4.2rem);font-weight:800;line-height:1.15;margin-bottom:1rem;background:var(--grad2);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hero p{font-size:clamp(1.05rem,2vw,1.35rem);color:var(--text2);max-width:640px;margin:0 auto 2.5rem}
-.hero .date{font-size:.85rem;color:var(--text3);margin-bottom:2rem;letter-spacing:.08em;text-transform:uppercase}
-.cta{display:inline-block;padding:.85rem 2.4rem;background:var(--grad1);color:#fff;font-weight:600;border-radius:50px;font-size:1rem;transition:transform .2s,box-shadow .2s;box-shadow:0 4px 24px rgba(108,92,231,.3)}
-.cta:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(108,92,231,.45);color:#fff}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:8rem 2rem 6rem;position:relative;overflow:hidden}
+.hero-orbs{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.orb{position:absolute;border-radius:50%;filter:blur(100px);opacity:.3}
+.orb-1{width:600px;height:600px;background:#3b82f6;top:-15%;right:-10%;animation:orb1 16s ease-in-out infinite}
+.orb-2{width:450px;height:450px;background:#8b5cf6;bottom:-10%;left:-8%;animation:orb2 12s ease-in-out infinite}
+.orb-3{width:350px;height:350px;background:#ec4899;top:35%;left:25%;animation:orb3 18s ease-in-out infinite}
+.orb-4{width:250px;height:250px;background:#22d3ee;bottom:20%;right:15%;animation:orb4 14s ease-in-out infinite}
+@keyframes orb1{0%,100%{transform:translate(0,0)}50%{transform:translate(-60px,20px)}}
+@keyframes orb2{0%,100%{transform:translate(0,0)}50%{transform:translate(40px,-50px)}}
+@keyframes orb3{0%,100%{transform:translate(0,0)}50%{transform:translate(50px,30px)}}
+@keyframes orb4{0%,100%{transform:translate(0,0)}50%{transform:translate(-40px,-40px)}}
+.hero-content{position:relative;z-index:2;animation:heroIn 1s cubic-bezier(.16,1,.3,1) .2s both}
+@keyframes heroIn{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+.hero-badge{display:inline-block;padding:.45rem 1.4rem;background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.2);border-radius:50px;font-size:.8rem;font-weight:500;color:var(--cyan);letter-spacing:.1em;text-transform:uppercase;margin-bottom:2rem}
+.hero h1{font-family:'Sora',sans-serif;font-size:clamp(3rem,7vw,6rem);font-weight:800;line-height:1.05;letter-spacing:-.04em;margin-bottom:1.5rem}
+.hero .l1{display:block;background:linear-gradient(135deg,#f1f5f9,#e2e8f0);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero .l2{display:block;background:var(--grad-hero);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:clamp(1.1rem,2vw,1.4rem);color:var(--text2);max-width:560px;margin:0 auto 3rem;font-weight:300}
+.cta-btn{display:inline-flex;align-items:center;gap:.6rem;padding:1rem 2.5rem;background:linear-gradient(135deg,#0ea5e9,#6366f1);color:#fff;font-family:'Sora',sans-serif;font-weight:600;border-radius:60px;font-size:1rem;transition:all .3s ease;box-shadow:0 4px 30px rgba(99,102,241,.3)}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(99,102,241,.45);color:#fff}
+.cta-btn svg{width:18px;height:18px;transition:transform .3s ease}
+.cta-btn:hover svg{transform:translateX(4px)}
 
 /* ── SECTIONS ── */
-section{padding:5rem 2rem}
-.container{max-width:1100px;margin:0 auto}
-.section-title{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;margin-bottom:.6rem;text-align:center}
-.section-sub{text-align:center;color:var(--text2);max-width:600px;margin:0 auto 3rem;font-size:1.02rem}
-.gradient-text{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+section{padding:6rem 2rem}
+.container{max-width:1120px;margin:0 auto}
+.section-label{display:inline-block;font-family:'Sora',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;padding:.35rem 1rem;border-radius:50px;margin-bottom:1rem}
+.section-title{font-family:'Sora',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;margin-bottom:.8rem;letter-spacing:-.03em;line-height:1.15}
+.section-sub{color:var(--text2);max-width:580px;margin:0 auto 3.5rem;font-size:1.05rem;font-weight:300;line-height:1.6;text-align:center}
+.text-center{text-align:center}
+.gradient-text{background:var(--grad-hero);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.bg-alt{background:var(--bg2)}
+
+/* ── GLASS CARD ── */
+.glass{background:var(--bg-card);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(148,163,184,.08);border-radius:var(--radius-lg);transition:all .35s ease}
 
 /* ── STATS ── */
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem}
-.stat-card{background:var(--bg2);border:1px solid rgba(108,92,231,.12);border-radius:var(--radius-lg);padding:2rem 1.6rem;text-align:center;transition:transform .25s,border-color .25s}
-.stat-card:hover{transform:translateY(-4px);border-color:rgba(108,92,231,.35)}
-.stat-num{font-size:2.6rem;font-weight:800;background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.1}
-.stat-label{font-weight:600;margin:.5rem 0 .3rem;font-size:1rem}
-.stat-desc{color:var(--text2);font-size:.88rem}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.stat-card{padding:2.2rem 1.8rem;text-align:center;position:relative;overflow:hidden}
+.stat-card:hover{transform:translateY(-4px);border-color:rgba(148,163,184,.15)}
+.stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:3px 3px 0 0}
+.stat-card:nth-child(1)::before{background:var(--cyan)}
+.stat-card:nth-child(2)::before{background:var(--blue)}
+.stat-card:nth-child(3)::before{background:var(--purple)}
+.stat-card:nth-child(4)::before{background:var(--magenta)}
+.stat-num{font-family:'Sora',sans-serif;font-size:2.8rem;font-weight:800;line-height:1.1;margin-bottom:.5rem;letter-spacing:-.02em}
+.stat-card:nth-child(1) .stat-num{color:var(--cyan)}
+.stat-card:nth-child(2) .stat-num{color:var(--blue)}
+.stat-card:nth-child(3) .stat-num{color:var(--purple)}
+.stat-card:nth-child(4) .stat-num{color:var(--magenta)}
+.stat-label{font-weight:600;font-size:.95rem;margin-bottom:.3rem}
+.stat-desc{color:var(--text2);font-size:.85rem}
 
 /* ── PROBLEMS ── */
-.problems{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem}
-.problem-card{background:var(--bg2);border:1px solid rgba(255,107,107,.1);border-radius:var(--radius);padding:1.8rem;position:relative;overflow:hidden}
-.problem-card::before{content:attr(data-num);position:absolute;top:-.3rem;right:.8rem;font-size:4rem;font-weight:900;color:rgba(255,107,107,.07)}
-.problem-card h4{color:#ff6b6b;font-size:1.05rem;margin-bottom:.4rem}
+.problems-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem}
+.problem-card{padding:2rem;position:relative;overflow:hidden;border-left:3px solid var(--rose)}
+.problem-card:hover{transform:translateY(-4px);border-color:rgba(148,163,184,.15)}
+.problem-card .num{font-family:'Sora',sans-serif;font-size:5rem;font-weight:800;position:absolute;top:-.5rem;right:.5rem;color:rgba(251,113,133,.05);line-height:1}
+.problem-card h4{color:var(--rose);font-family:'Sora',sans-serif;font-size:1.05rem;font-weight:600;margin-bottom:.4rem}
 .problem-card p{color:var(--text2);font-size:.9rem}
 
-/* ── DEFINITION BOX ── */
-.def-section{background:var(--bg2);border-radius:var(--radius-lg);padding:3rem 2.5rem;border:1px solid rgba(108,92,231,.2);position:relative;overflow:hidden}
-.def-section::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad1)}
-.def-quote{font-size:clamp(1.1rem,2vw,1.35rem);font-weight:500;text-align:center;margin-bottom:2.5rem;color:var(--accent2);line-height:1.6}
-.pillars-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem}
-.pillar-mini{text-align:center}
-.pillar-mini .icon{width:52px;height:52px;border-radius:50%;background:var(--grad1);display:inline-flex;align-items:center;justify-content:center;font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:.7rem}
-.pillar-mini h4{font-size:1rem;margin-bottom:.3rem}
-.pillar-mini p{color:var(--text2);font-size:.85rem}
+/* ── DEFINITION ── */
+.def-box{position:relative;padding:3.5rem 3rem;overflow:hidden}
+.def-box::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad-hero)}
+.def-quote{font-family:'Sora',sans-serif;font-size:clamp(1.15rem,2.2vw,1.45rem);font-weight:500;text-align:center;line-height:1.65;margin-bottom:3rem;max-width:700px;margin-left:auto;margin-right:auto}
+.def-quote em{font-style:normal;background:var(--grad-hero);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:600}
+.pillars-row{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem}
+.pillar-mini{text-align:center;padding:1.5rem 1rem}
+.pillar-icon{width:56px;height:56px;border-radius:16px;display:inline-flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:1rem}
+.pillar-mini:nth-child(1) .pillar-icon{background:linear-gradient(135deg,var(--cyan),var(--blue))}
+.pillar-mini:nth-child(2) .pillar-icon{background:linear-gradient(135deg,var(--green),var(--teal))}
+.pillar-mini:nth-child(3) .pillar-icon{background:linear-gradient(135deg,var(--purple),var(--indigo))}
+.pillar-mini h4{font-family:'Sora',sans-serif;font-size:1.05rem;font-weight:600;margin-bottom:.4rem}
+.pillar-mini p{color:var(--text2);font-size:.88rem}
 
-/* ── CONTROL TOWER ── */
-.tower-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.5rem;margin-bottom:1.5rem}
-.tower-card{background:var(--bg3);border-radius:var(--radius);padding:1.6rem;border:1px solid rgba(0,206,201,.1);transition:border-color .25s}
-.tower-card:hover{border-color:rgba(0,206,201,.35)}
-.tower-card .tc-icon{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,rgba(0,206,201,.2),rgba(108,92,231,.2));display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent3);margin-bottom:.8rem;font-size:1.1rem}
-.tower-card h4{font-size:.98rem;margin-bottom:.3rem}
-.tower-card p{color:var(--text2);font-size:.85rem}
-.tower-footer{text-align:center;color:var(--accent2);font-style:italic;font-size:.95rem;padding:1rem;background:var(--bg2);border-radius:var(--radius);border:1px dashed rgba(108,92,231,.2)}
+/* ── TOWER ── */
+.tower-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin-bottom:1.5rem}
+.tower-card{padding:1.8rem;border-top:3px solid transparent}
+.tower-card:hover{transform:translateY(-4px);border-color:rgba(148,163,184,.15)}
+.tower-card:nth-child(1){border-top-color:var(--cyan)}
+.tower-card:nth-child(2){border-top-color:var(--blue)}
+.tower-card:nth-child(3){border-top-color:var(--purple)}
+.tower-card:nth-child(4){border-top-color:var(--green)}
+.tower-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-weight:700;font-size:1.1rem;margin-bottom:1rem}
+.tower-card:nth-child(1) .tower-icon{background:rgba(34,211,238,.12);color:var(--cyan)}
+.tower-card:nth-child(2) .tower-icon{background:rgba(59,130,246,.12);color:var(--blue)}
+.tower-card:nth-child(3) .tower-icon{background:rgba(167,139,250,.12);color:var(--purple)}
+.tower-card:nth-child(4) .tower-icon{background:rgba(52,211,153,.12);color:var(--green)}
+.tower-card h4{font-family:'Sora',sans-serif;font-size:.98rem;font-weight:600;margin-bottom:.35rem}
+.tower-card p{color:var(--text2);font-size:.87rem}
+.tower-footer{text-align:center;padding:1.2rem 2rem;border-radius:var(--radius);background:rgba(99,102,241,.06);border:1px solid rgba(99,102,241,.12);color:var(--indigo);font-size:.95rem;font-weight:500}
 
-/* ── COMPARISON TABLE ── */
-.compare{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
-.compare-col{background:var(--bg2);border-radius:var(--radius-lg);padding:2rem 1.5rem;text-align:center;border:1px solid rgba(108,92,231,.1);transition:transform .2s}
-.compare-col:last-child{border-color:rgba(108,92,231,.35);box-shadow:0 0 40px rgba(108,92,231,.08)}
-.compare-col h3{font-size:1.2rem;margin-bottom:.8rem}
-.compare-col:last-child h3{background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.compare-col p{color:var(--text2);font-size:.9rem;line-height:1.6}
+/* ── COMPARISON ── */
+.compare-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.compare-col{padding:2.5rem 2rem;text-align:center}
+.compare-col:hover{transform:translateY(-4px)}
+.compare-col h3{font-family:'Sora',sans-serif;font-size:1.25rem;font-weight:700;margin-bottom:1rem}
+.compare-col p{color:var(--text2);font-size:.92rem;line-height:1.7}
+.compare-col.highlight{border-color:rgba(99,102,241,.3);box-shadow:0 0 60px rgba(99,102,241,.08),0 0 0 1px rgba(99,102,241,.15)}
+.compare-col.highlight::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad-hero);border-radius:3px 3px 0 0}
+.compare-col.highlight{position:relative}
+.compare-col.highlight h3{background:var(--grad-hero);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.compare-tag{display:inline-block;font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .8rem;border-radius:50px;margin-bottom:1rem}
+.compare-col:nth-child(1) .compare-tag{background:rgba(148,163,184,.1);color:var(--text3)}
+.compare-col:nth-child(2) .compare-tag{background:rgba(251,191,36,.1);color:var(--amber)}
+.compare-col.highlight .compare-tag{background:rgba(99,102,241,.15);color:var(--indigo)}
 
 /* ── PILLAR DETAIL ── */
 .pillar-section{margin-bottom:4rem}
-.pillar-header{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem}
-.pillar-badge{width:48px;height:48px;border-radius:14px;background:var(--grad1);display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:1.2rem;flex-shrink:0}
-.pillar-header h3{font-size:1.4rem;font-weight:700}
-.kw-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem}
-.kw-card{background:var(--bg3);border-radius:var(--radius);padding:1.3rem 1.5rem;border-left:3px solid var(--accent);transition:border-color .2s}
-.kw-card:hover{border-left-color:var(--accent3)}
-.kw-card strong{display:block;margin-bottom:.25rem;color:var(--accent2);font-size:.95rem}
-.kw-card span{color:var(--text2);font-size:.88rem}
+.pillar-header{display:flex;align-items:center;gap:1.2rem;margin-bottom:1.5rem}
+.pillar-badge{width:52px;height:52px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-weight:800;color:#fff;font-size:1.25rem;flex-shrink:0}
+.pillar-section:nth-of-type(1) .pillar-badge{background:linear-gradient(135deg,var(--cyan),var(--blue))}
+.pillar-section:nth-of-type(2) .pillar-badge{background:linear-gradient(135deg,var(--blue),var(--purple))}
+.pillar-section:nth-of-type(3) .pillar-badge{background:linear-gradient(135deg,var(--green),var(--teal))}
+.pillar-section:nth-of-type(4) .pillar-badge{background:linear-gradient(135deg,var(--amber),var(--orange))}
+.pillar-header h3{font-family:'Sora',sans-serif;font-size:1.4rem;font-weight:700}
+.pillar-note{color:var(--text2);margin-bottom:1.2rem;font-size:.95rem}
+.kw-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1rem}
+.kw-card{background:rgba(15,23,42,.4);border:1px solid rgba(148,163,184,.06);border-radius:var(--radius);padding:1.4rem 1.6rem;border-left:3px solid;transition:all .3s ease}
+.kw-card:hover{transform:translateX(4px);border-color:rgba(148,163,184,.12)}
+.pillar-section:nth-of-type(1) .kw-card{border-left-color:var(--blue)}
+.pillar-section:nth-of-type(2) .kw-card{border-left-color:var(--purple)}
+.pillar-section:nth-of-type(3) .kw-card{border-left-color:var(--green)}
+.pillar-section:nth-of-type(4) .kw-card{border-left-color:var(--amber)}
+.kw-card strong{display:block;margin-bottom:.3rem;font-size:.95rem;font-weight:600}
+.pillar-section:nth-of-type(1) .kw-card strong{color:var(--cyan)}
+.pillar-section:nth-of-type(2) .kw-card strong{color:var(--purple)}
+.pillar-section:nth-of-type(3) .kw-card strong{color:var(--green)}
+.pillar-section:nth-of-type(4) .kw-card strong{color:var(--amber)}
+.kw-card span{color:var(--text2);font-size:.87rem}
 
 /* ── USE CASES ── */
-.usecase{background:var(--bg2);border-radius:var(--radius-lg);padding:2.2rem;margin-bottom:1.5rem;border:1px solid rgba(108,92,231,.1)}
-.usecase h3{font-size:1.15rem;margin-bottom:1.2rem;color:var(--accent2)}
+.usecase{padding:2.5rem;margin-bottom:1.5rem;border-top:3px solid transparent}
+.usecase:nth-of-type(1){border-top-color:var(--cyan)}
+.usecase:nth-of-type(2){border-top-color:var(--blue)}
+.usecase:nth-of-type(3){border-top-color:var(--purple)}
+.usecase:nth-of-type(4){border-top-color:var(--green)}
+.usecase h3{font-family:'Sora',sans-serif;font-size:1.15rem;font-weight:600;margin-bottom:1.3rem}
+.usecase:nth-of-type(1) h3{color:var(--cyan)}
+.usecase:nth-of-type(2) h3{color:var(--blue)}
+.usecase:nth-of-type(3) h3{color:var(--purple)}
+.usecase:nth-of-type(4) h3{color:var(--green)}
 .usecase .kw-grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.usecase .kw-card{border-left:none;border-bottom:2px solid rgba(148,163,184,.06);border-radius:var(--radius) var(--radius) 0 0}
+.usecase .kw-card strong{color:var(--text)}
+.usecase .kw-card:hover{transform:translateY(-3px)}
 
 /* ── KPI ── */
-.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem}
-.kpi-card{background:var(--bg2);border-radius:var(--radius-lg);padding:2rem;text-align:center;border:1px solid rgba(0,206,201,.1);transition:transform .25s}
-.kpi-card:hover{transform:translateY(-4px)}
-.kpi-num{font-size:2.4rem;font-weight:800;background:var(--grad1);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.kpi-label{font-weight:600;margin:.4rem 0 .2rem}
+.kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.kpi-card{padding:2.2rem;text-align:center;position:relative;overflow:hidden}
+.kpi-card:hover{transform:translateY(-4px);border-color:rgba(148,163,184,.15)}
+.kpi-card::after{content:'';position:absolute;bottom:0;left:20%;right:20%;height:2px;border-radius:2px}
+.kpi-card:nth-child(1)::after{background:var(--green)}
+.kpi-card:nth-child(2)::after{background:var(--cyan)}
+.kpi-card:nth-child(3)::after{background:var(--blue)}
+.kpi-card:nth-child(4)::after{background:var(--purple)}
+.kpi-num{font-family:'Sora',sans-serif;font-size:2.6rem;font-weight:800;line-height:1.1;letter-spacing:-.02em}
+.kpi-card:nth-child(1) .kpi-num{color:var(--green)}
+.kpi-card:nth-child(2) .kpi-num{color:var(--cyan)}
+.kpi-card:nth-child(3) .kpi-num{color:var(--blue)}
+.kpi-card:nth-child(4) .kpi-num{color:var(--purple)}
+.kpi-label{font-weight:600;margin:.5rem 0 .3rem;font-size:.98rem}
 .kpi-desc{color:var(--text2);font-size:.85rem}
 
 /* ── RISKS ── */
-.risk-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem}
-.risk-card{background:var(--bg2);border-radius:var(--radius);padding:1.5rem;border-left:3px solid #ff6b6b}
-.risk-card strong{color:#ff6b6b;display:block;margin-bottom:.3rem}
-.risk-card span{color:var(--text2);font-size:.9rem}
+.risk-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.2rem}
+.risk-card{padding:1.5rem 1.6rem;border-left:3px solid var(--rose);background:rgba(251,113,133,.03)}
+.risk-card:hover{background:rgba(251,113,133,.06);transform:translateX(4px)}
+.risk-card strong{color:var(--rose);display:block;font-size:.95rem;margin-bottom:.3rem}
+.risk-card span{color:var(--text2);font-size:.88rem}
 
 /* ── STRATEGIES ── */
-.strat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1rem}
-.strat-card{background:var(--bg3);border-radius:var(--radius);padding:1.4rem 1.5rem;border-left:3px solid var(--accent3)}
-.strat-card strong{display:block;margin-bottom:.25rem;color:var(--accent3)}
+.strat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.2rem}
+.strat-card{padding:1.5rem 1.6rem;border-left:3px solid var(--teal);background:rgba(45,212,191,.03)}
+.strat-card:hover{background:rgba(45,212,191,.06);transform:translateX(4px)}
+.strat-card strong{color:var(--teal);display:block;font-size:.95rem;margin-bottom:.3rem}
 .strat-card span{color:var(--text2);font-size:.88rem}
 
 /* ── ROADMAP ── */
-.roadmap{display:flex;flex-direction:column;gap:0;position:relative}
-.roadmap::before{content:'';position:absolute;left:28px;top:28px;bottom:28px;width:2px;background:linear-gradient(180deg,var(--accent),var(--accent3))}
-.road-step{display:flex;gap:1.5rem;align-items:flex-start;padding:1.2rem 0}
-.road-num{width:56px;height:56px;border-radius:50%;background:var(--bg3);border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.2rem;color:var(--accent2);flex-shrink:0;position:relative;z-index:2}
-.road-content h4{font-size:1.05rem;color:var(--accent2);margin-bottom:.2rem}
-.road-content p{color:var(--text2);font-size:.9rem}
+.roadmap{position:relative;padding-left:3rem}
+.roadmap::before{content:'';position:absolute;left:27px;top:32px;bottom:32px;width:2px;background:linear-gradient(180deg,var(--cyan),var(--blue),var(--purple),var(--magenta),var(--green));border-radius:2px}
+.road-step{display:flex;gap:1.8rem;padding:1.5rem 0;position:relative}
+.road-num{width:56px;height:56px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-family:'Sora',sans-serif;font-weight:800;font-size:1.2rem;flex-shrink:0;position:relative;z-index:2;transition:all .35s ease}
+.road-step:nth-child(1) .road-num{border:2px solid var(--cyan);color:var(--cyan)}
+.road-step:nth-child(2) .road-num{border:2px solid var(--blue);color:var(--blue)}
+.road-step:nth-child(3) .road-num{border:2px solid var(--purple);color:var(--purple)}
+.road-step:nth-child(4) .road-num{border:2px solid var(--magenta);color:var(--magenta)}
+.road-step:nth-child(5) .road-num{border:2px solid var(--green);color:var(--green)}
+.road-step:hover .road-num{transform:scale(1.1)}
+.road-content{padding-top:.6rem}
+.road-content h4{font-family:'Sora',sans-serif;font-size:1.1rem;font-weight:600;margin-bottom:.3rem}
+.road-step:nth-child(1) h4{color:var(--cyan)}
+.road-step:nth-child(2) h4{color:var(--blue)}
+.road-step:nth-child(3) h4{color:var(--purple)}
+.road-step:nth-child(4) h4{color:var(--magenta)}
+.road-step:nth-child(5) h4{color:var(--green)}
+.road-content p{color:var(--text2);font-size:.92rem}
 
 /* ── FOOTER ── */
-footer{border-top:1px solid rgba(108,92,231,.12);padding:2.5rem 2rem;text-align:center;color:var(--text3);font-size:.85rem}
+footer{padding:3rem 2rem;text-align:center;border-top:1px solid rgba(148,163,184,.06)}
+footer p{color:var(--text3);font-size:.85rem}
+
+/* ── ANIMATIONS ── */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
 
 /* ── RESPONSIVE ── */
-@media(max-width:768px){
-  nav ul{display:none}
-  .compare{grid-template-columns:1fr}
-  .roadmap::before{left:26px}
-  section{padding:3.5rem 1.2rem}
+@media(max-width:1024px){
+  .stats-grid,.kpi-grid{grid-template-columns:repeat(2,1fr)}
+  .compare-grid{grid-template-columns:1fr}
 }
-
-/* ── ANIMATION ── */
-.fade-up{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
-.fade-up.visible{opacity:1;transform:translateY(0)}
+@media(max-width:768px){
+  nav .inner{padding:.8rem 1.5rem}
+  nav ul{position:fixed;top:0;right:-100%;width:280px;height:100vh;background:rgba(3,7,18,.96);backdrop-filter:blur(24px);flex-direction:column;padding:5rem 2rem 2rem;gap:0;transition:right .35s ease;box-shadow:-10px 0 40px rgba(0,0,0,.3)}
+  nav ul.open{right:0}
+  nav ul li{border-bottom:1px solid rgba(148,163,184,.06)}
+  nav ul a{display:block;padding:1rem 0;font-size:1rem}
+  .menu-toggle{display:flex;z-index:110;position:relative}
+  .menu-toggle.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+  .menu-toggle.open span:nth-child(2){opacity:0}
+  .menu-toggle.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+  section{padding:4rem 1.2rem}
+  .hero{min-height:90vh;padding:7rem 1.5rem 4rem}
+  .hero h1{font-size:clamp(2.5rem,10vw,3.5rem)}
+  .pillars-row{grid-template-columns:1fr}
+  .def-box{padding:2.5rem 1.8rem}
+  .roadmap{padding-left:0}
+  .roadmap::before{left:27px}
+}
+@media(max-width:480px){
+  .stats-grid,.kpi-grid{grid-template-columns:1fr}
+  .kw-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
+
+<!-- PROGRESS BAR -->
+<div class="progress-bar"></div>
 
 <!-- NAV -->
 <nav>
   <div class="inner">
     <div class="logo">Entreprise Agentique</div>
+    <button class="menu-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
     <ul>
       <li><a href="#contexte">Contexte</a></li>
       <li><a href="#definition">Définition</a></li>
@@ -165,38 +301,50 @@ footer{border-top:1px solid rgba(108,92,231,.12);padding:2.5rem 2rem;text-align:
 
 <!-- HERO -->
 <section class="hero">
-  <div>
-    <div class="date">Février 2026</div>
-    <h1>Entreprise Agentique</h1>
+  <div class="hero-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="orb orb-4"></div>
+  </div>
+  <div class="hero-content">
+    <span class="hero-badge">Février 2026</span>
+    <h1><span class="l1">Entreprise</span><span class="l2">Agentique</span></h1>
     <p>Quand l'IA passe de l'assistance à l'action autonome</p>
-    <a href="#contexte" class="cta">Explorer la vision</a>
+    <a href="#contexte" class="cta-btn">Explorer la vision <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
   </div>
 </section>
 
 <!-- CONTEXTE -->
 <section id="contexte">
   <div class="container">
-    <h2 class="section-title fade-up">Contexte de <span class="gradient-text">Transformation</span></h2>
-    <p class="section-sub fade-up">L'IA agentique redéfinit les organisations à un rythme sans précédent.</p>
-    <div class="stats fade-up">
-      <div class="stat-card"><div class="stat-num">40%</div><div class="stat-label">des applications d'entreprise</div><div class="stat-desc">intègreront des agents IA d'ici fin 2026</div></div>
-      <div class="stat-card"><div class="stat-num">42%</div><div class="stat-label">des organisations</div><div class="stat-desc">ont déjà des agents en production</div></div>
-      <div class="stat-card"><div class="stat-num">$52B</div><div class="stat-label">Marché estimé d'ici 2030</div><div class="stat-desc">en USD pour l'IA agentique</div></div>
-      <div class="stat-card"><div class="stat-num">#1</div><div class="stat-label">Transition la plus rapide</div><div class="stat-desc">en automatisation depuis 5 ans</div></div>
+    <div class="text-center">
+      <span class="section-label" style="background:rgba(34,211,238,.08);color:var(--cyan)">Contexte</span>
+      <h2 class="section-title reveal">Contexte de <span class="gradient-text">Transformation</span></h2>
+      <p class="section-sub reveal d1">L'IA agentique redéfinit les organisations à un rythme sans précédent.</p>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-card glass reveal d1"><div class="stat-num">40%</div><div class="stat-label">des applications d'entreprise</div><div class="stat-desc">intègreront des agents IA d'ici fin 2026</div></div>
+      <div class="stat-card glass reveal d2"><div class="stat-num">42%</div><div class="stat-label">des organisations</div><div class="stat-desc">ont déjà des agents en production</div></div>
+      <div class="stat-card glass reveal d3"><div class="stat-num">$52B</div><div class="stat-label">Marché estimé d'ici 2030</div><div class="stat-desc">en USD pour l'IA agentique</div></div>
+      <div class="stat-card glass reveal d4"><div class="stat-num">#1</div><div class="stat-label">Transition la plus rapide</div><div class="stat-desc">en automatisation depuis 5 ans</div></div>
     </div>
   </div>
 </section>
 
 <!-- PROBLÈME -->
-<section style="background:var(--bg2)">
+<section class="bg-alt">
   <div class="container">
-    <h2 class="section-title fade-up">Problème <span class="gradient-text">Actuel</span></h2>
-    <p class="section-sub fade-up">Pourquoi les approches traditionnelles ne suffisent plus.</p>
-    <div class="problems fade-up">
-      <div class="problem-card" data-num="1"><h4>Automatisation rigide</h4><p>Traditionnelle, fragile, ne gère pas l'imprévu</p></div>
-      <div class="problem-card" data-num="2"><h4>IA générative limitée</h4><p>Assiste mais n'agit pas de manière autonome</p></div>
-      <div class="problem-card" data-num="3"><h4>Volume & complexité</h4><p>Organisations submergées par la croissance</p></div>
-      <div class="problem-card" data-num="4"><h4>Besoin de réactivité</h4><p>Adaptabilité en temps réel nécessaire</p></div>
+    <div class="text-center">
+      <span class="section-label" style="background:rgba(251,113,133,.08);color:var(--rose)">Problème</span>
+      <h2 class="section-title reveal">Problème <span style="color:var(--rose)">Actuel</span></h2>
+      <p class="section-sub reveal d1">Pourquoi les approches traditionnelles ne suffisent plus.</p>
+    </div>
+    <div class="problems-grid">
+      <div class="problem-card glass reveal d1"><div class="num">1</div><h4>Automatisation rigide</h4><p>Traditionnelle, fragile, ne gère pas l'imprévu</p></div>
+      <div class="problem-card glass reveal d2"><div class="num">2</div><h4>IA générative limitée</h4><p>Assiste mais n'agit pas de manière autonome</p></div>
+      <div class="problem-card glass reveal d3"><div class="num">3</div><h4>Volume & complexité</h4><p>Organisations submergées par la croissance</p></div>
+      <div class="problem-card glass reveal d4"><div class="num">4</div><h4>Besoin de réactivité</h4><p>Adaptabilité en temps réel nécessaire</p></div>
     </div>
   </div>
 </section>
@@ -204,53 +352,65 @@ footer{border-top:1px solid rgba(108,92,231,.12);padding:2.5rem 2rem;text-align:
 <!-- DÉFINITION -->
 <section id="definition">
   <div class="container">
-    <h2 class="section-title fade-up">Qu'est-ce que l'<span class="gradient-text">Entreprise Agentique</span> ?</h2>
-    <div class="def-section fade-up" style="margin-top:2rem">
-      <p class="def-quote">Organisation où humains et agents IA forment un écosystème collaboratif intégré</p>
+    <div class="text-center">
+      <span class="section-label" style="background:rgba(129,140,248,.08);color:var(--indigo)">Définition</span>
+      <h2 class="section-title reveal">Qu'est-ce que l'<span class="gradient-text">Entreprise Agentique</span> ?</h2>
+    </div>
+    <div class="def-box glass reveal" style="margin-top:2.5rem">
+      <p class="def-quote">Organisation où <em>humains et agents IA</em> forment un écosystème collaboratif intégré</p>
       <div class="pillars-row">
-        <div class="pillar-mini"><div class="icon">A</div><h4>Agents autonomes</h4><p>Raisonnent, planifient, décident et agissent de manière autonome</p></div>
-        <div class="pillar-mini"><div class="icon">H</div><h4>Supervision humaine</h4><p>Définissent la stratégie, gèrent les exceptions complexes</p></div>
-        <div class="pillar-mini"><div class="icon">O</div><h4>Orchestration coordonnée</h4><p>Flottes d'agents spécialisés collaborant en synergie</p></div>
+        <div class="pillar-mini"><div class="pillar-icon">A</div><h4>Agents autonomes</h4><p>Raisonnent, planifient, décident et agissent de manière autonome</p></div>
+        <div class="pillar-mini"><div class="pillar-icon">H</div><h4>Supervision humaine</h4><p>Définissent la stratégie, gèrent les exceptions complexes</p></div>
+        <div class="pillar-mini"><div class="pillar-icon">O</div><h4>Orchestration coordonnée</h4><p>Flottes d'agents spécialisés collaborant en synergie</p></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- MÉTAPHORE TOUR DE CONTRÔLE -->
-<section style="background:var(--bg2)">
+<section class="bg-alt">
   <div class="container">
-    <h2 class="section-title fade-up">Métaphore de la <span class="gradient-text">Tour de Contrôle</span></h2>
-    <p class="section-sub fade-up">Comme un aéroport intelligent avec agents spécialisés</p>
-    <div class="tower-grid fade-up">
-      <div class="tower-card"><div class="tc-icon">M</div><h4>Agent Météo & Trafic</h4><p>Surveille conditions, anticipe les perturbations</p></div>
-      <div class="tower-card"><div class="tc-icon">R</div><h4>Agent Ressources</h4><p>Alloue portes, personnel et équipements</p></div>
-      <div class="tower-card"><div class="tc-icon">P</div><h4>Agent Passagers</h4><p>Gère demandes, reprogramme connexions</p></div>
-      <div class="tower-card"><div class="tc-icon">O</div><h4>Agent Opérations</h4><p>Coordonne ravitaillement et maintenance</p></div>
+    <div class="text-center">
+      <span class="section-label" style="background:rgba(34,211,238,.08);color:var(--cyan)">Métaphore</span>
+      <h2 class="section-title reveal">Métaphore de la <span class="gradient-text">Tour de Contrôle</span></h2>
+      <p class="section-sub reveal d1">Comme un aéroport intelligent avec agents spécialisés</p>
     </div>
-    <div class="tower-footer fade-up">Humain = chef d'orchestre définissant les priorités stratégiques</div>
+    <div class="tower-grid">
+      <div class="tower-card glass reveal d1"><div class="tower-icon">M</div><h4>Agent Météo & Trafic</h4><p>Surveille conditions, anticipe les perturbations</p></div>
+      <div class="tower-card glass reveal d2"><div class="tower-icon">R</div><h4>Agent Ressources</h4><p>Alloue portes, personnel et équipements</p></div>
+      <div class="tower-card glass reveal d3"><div class="tower-icon">P</div><h4>Agent Passagers</h4><p>Gère demandes, reprogramme connexions</p></div>
+      <div class="tower-card glass reveal d4"><div class="tower-icon">O</div><h4>Agent Opérations</h4><p>Coordonne ravitaillement et maintenance</p></div>
+    </div>
+    <div class="tower-footer reveal">Humain = chef d'orchestre définissant les priorités stratégiques</div>
   </div>
 </section>
 
 <!-- COMPARAISON -->
 <section>
   <div class="container">
-    <h2 class="section-title fade-up">RPA vs GenAI vs <span class="gradient-text">Agentic AI</span></h2>
-    <p class="section-sub fade-up">Trois générations d'automatisation, une seule qui raisonne.</p>
-    <div class="compare fade-up">
-      <div class="compare-col"><h3>RPA</h3><p>Script rigide, échoue face à l'imprévu, maintenance élevée</p></div>
-      <div class="compare-col"><h3>GenAI</h3><p>Suggère et recommande, mais n'agit pas de manière autonome</p></div>
-      <div class="compare-col"><h3>Agentic AI</h3><p>Raisonne, s'adapte, agit de manière autonome et coordonnée</p></div>
+    <div class="text-center">
+      <span class="section-label" style="background:rgba(129,140,248,.08);color:var(--indigo)">Comparaison</span>
+      <h2 class="section-title reveal">RPA vs GenAI vs <span class="gradient-text">Agentic AI</span></h2>
+      <p class="section-sub reveal d1">Trois générations d'automatisation, une seule qui raisonne.</p>
+    </div>
+    <div class="compare-grid">
+      <div class="compare-col glass reveal d1"><span class="compare-tag">Ancienne ère</span><h3>RPA</h3><p>Script rigide, échoue face à l'imprévu, maintenance élevée</p></div>
+      <div class="compare-col glass reveal d2"><span class="compare-tag">Transition</span><h3>GenAI</h3><p>Suggère et recommande, mais n'agit pas de manière autonome</p></div>
+      <div class="compare-col glass highlight reveal d3"><span class="compare-tag">Maintenant</span><h3>Agentic AI</h3><p>Raisonne, s'adapte, agit de manière autonome et coordonnée</p></div>
     </div>
   </div>
 </section>
 
 <!-- PILIERS -->
-<section id="piliers" style="background:var(--bg2)">
+<section id="piliers" class="bg-alt">
   <div class="container">
-    <h2 class="section-title fade-up">Les 4 <span class="gradient-text">Piliers</span></h2>
-    <p class="section-sub fade-up">Fondations d'une entreprise agentique réussie.</p>
+    <div class="text-center">
+      <span class="section-label" style="background:rgba(167,139,250,.08);color:var(--purple)">Fondations</span>
+      <h2 class="section-title reveal">Les 4 <span class="gradient-text">Piliers</span></h2>
+      <p class="section-sub reveal d1">Fondations d'une entreprise agentique réussie.</p>
+    </div>
 
-    <div class="pillar-section fade-up">
+    <div class="pillar-section reveal">
       <div class="pillar-header"><div class="pillar-badge">1</div><h3>Agents IA Autonomes</h3></div>
       <div class="kw-grid">
         <div class="kw-card"><strong>Autonomie</strong><span>Opèrent sans supervision constante</span></div>
@@ -260,7 +420,7 @@ footer{border-top:1px solid rgba(108,92,231,.12);padding:2.5rem 2rem;text-align:
       </div>
     </div>
 
-    <div class="pillar-section fade-up">
+    <div class="pillar-section reveal">
       <div class="pillar-header"><div class="pillar-badge">2</div><h3>Orchestration Multi-Agents</h3></div>
       <div class="kw-grid">
         <div class="kw-card"><strong>Collaboration</strong><span>Flottes d'agents spécialisés (vs monolithique)</span></div>
@@ -270,7 +430,7 @@ footer{border-top:1px solid rgba(108,92,231,.12);padding:2.5rem 2rem;text-align:
       </div>
     </div>
 
-    <div class="pillar-section fade-up">
+    <div class="pillar-section reveal">
       <div class="pillar-header"><div class="pillar-badge">3</div><h3>Gouvernance & Leadership Humain</h3></div>
       <div class="kw-grid">
         <div class="kw-card"><strong>Human-On-the-Loop</strong><span>Priorisation des décisions et Orchestration des tâches - Pilotage</span></div>
@@ -280,9 +440,9 @@ footer{border-top:1px solid rgba(108,92,231,.12);padding:2.5rem 2rem;text-align:
       </div>
     </div>
 
-    <div class="pillar-section fade-up" style="margin-bottom:0">
+    <div class="pillar-section reveal" style="margin-bottom:0">
       <div class="pillar-header"><div class="pillar-badge">4</div><h3>Fondation de Données</h3></div>
-      <p style="color:var(--text2);margin-bottom:1rem;font-size:.95rem">Les agents ne valent que la qualité des données</p>
+      <p class="pillar-note">Les agents ne valent que la qualité des données</p>
       <div class="kw-grid">
         <div class="kw-card"><strong>Data fabric</strong><span>Intégration transparente de sources hétérogènes en temps réel</span></div>
         <div class="kw-card"><strong>Qualité des données</strong><span>Exactitude, complétude, fraîcheur et cohérence</span></div>
@@ -295,10 +455,13 @@ footer{border-top:1px solid rgba(108,92,231,.12);padding:2.5rem 2rem;text-align:
 <!-- CAS D'USAGE -->
 <section id="usecases">
   <div class="container">
-    <h2 class="section-title fade-up">Cas d'<span class="gradient-text">Usage</span></h2>
-    <p class="section-sub fade-up">Applications concrètes à travers l'entreprise.</p>
+    <div class="text-center">
+      <span class="section-label" style="background:rgba(59,130,246,.08);color:var(--blue)">Exemples</span>
+      <h2 class="section-title reveal">Cas d'<span class="gradient-text">Usage</span></h2>
+      <p class="section-sub reveal d1">Applications concrètes à travers l'entreprise.</p>
+    </div>
 
-    <div class="usecase fade-up">
+    <div class="usecase glass reveal">
       <h3>Service Client Autonome</h3>
       <div class="kw-grid">
         <div class="kw-card"><strong>Accès historique</strong><span>Agent accède à l'historique complet instantanément</span></div>
@@ -308,7 +471,7 @@ footer{border-top:1px solid rgba(108,92,231,.12);padding:2.5rem 2rem;text-align:
       </div>
     </div>
 
-    <div class="usecase fade-up">
+    <div class="usecase glass reveal">
       <h3>Supply Chain Intelligente</h3>
       <div class="kw-grid">
         <div class="kw-card"><strong>Agent demande</strong><span>Analyse ventes temps réel + tendances + météo</span></div>
@@ -318,7 +481,7 @@ footer{border-top:1px solid rgba(108,92,231,.12);padding:2.5rem 2rem;text-align:
       </div>
     </div>
 
-    <div class="usecase fade-up">
+    <div class="usecase glass reveal">
       <h3>Opérations IT & Cybersécurité</h3>
       <div class="kw-grid">
         <div class="kw-card"><strong>Résolution automatique</strong><span>80 % des tickets courants résolus sans intervention</span></div>
@@ -328,7 +491,7 @@ footer{border-top:1px solid rgba(108,92,231,.12);padding:2.5rem 2rem;text-align:
       </div>
     </div>
 
-    <div class="usecase fade-up">
+    <div class="usecase glass reveal">
       <h3>Finance & Conformité</h3>
       <div class="kw-grid">
         <div class="kw-card"><strong>Réconciliations</strong><span>Automatisation des réconciliations et validations conformité</span></div>
@@ -341,15 +504,18 @@ footer{border-top:1px solid rgba(108,92,231,.12);padding:2.5rem 2rem;text-align:
 </section>
 
 <!-- KPI -->
-<section id="kpi" style="background:var(--bg2)">
+<section id="kpi" class="bg-alt">
   <div class="container">
-    <h2 class="section-title fade-up">Bénéfices <span class="gradient-text">Mesurables</span></h2>
-    <p class="section-sub fade-up">Résultats observés chez les adopteurs précoces.</p>
-    <div class="kpi-grid fade-up">
-      <div class="kpi-card"><div class="kpi-num">+35%</div><div class="kpi-label">Productivité</div><div class="kpi-desc">Chez les adopteurs précoces</div></div>
-      <div class="kpi-card"><div class="kpi-num">-30%</div><div class="kpi-label">Coûts</div><div class="kpi-desc">Coût opérationnel moyen</div></div>
-      <div class="kpi-card"><div class="kpi-num">99.5%</div><div class="kpi-label">Qualité</div><div class="kpi-desc">Réduction erreurs, cohérence décisions</div></div>
-      <div class="kpi-card"><div class="kpi-num">24/7</div><div class="kpi-label">Expérience</div><div class="kpi-desc">+30% satisfaction client</div></div>
+    <div class="text-center">
+      <span class="section-label" style="background:rgba(52,211,153,.08);color:var(--green)">Impact</span>
+      <h2 class="section-title reveal">Bénéfices <span class="gradient-text">Mesurables</span></h2>
+      <p class="section-sub reveal d1">Résultats observés chez les adopteurs précoces.</p>
+    </div>
+    <div class="kpi-grid">
+      <div class="kpi-card glass reveal d1"><div class="kpi-num">+35%</div><div class="kpi-label">Productivité</div><div class="kpi-desc">Chez les adopteurs précoces</div></div>
+      <div class="kpi-card glass reveal d2"><div class="kpi-num">-30%</div><div class="kpi-label">Coûts</div><div class="kpi-desc">Coût opérationnel moyen</div></div>
+      <div class="kpi-card glass reveal d3"><div class="kpi-num">99.5%</div><div class="kpi-label">Qualité</div><div class="kpi-desc">Réduction erreurs, cohérence décisions</div></div>
+      <div class="kpi-card glass reveal d4"><div class="kpi-num">24/7</div><div class="kpi-label">Expérience</div><div class="kpi-desc">+30% satisfaction client</div></div>
     </div>
   </div>
 </section>
@@ -357,29 +523,35 @@ footer{border-top:1px solid rgba(108,92,231,.12);padding:2.5rem 2rem;text-align:
 <!-- RISQUES -->
 <section>
   <div class="container">
-    <h2 class="section-title fade-up">Risques à <span style="color:#ff6b6b">Maîtriser</span></h2>
-    <p class="section-sub fade-up">Adopter l'IA agentique exige une conscience claire des risques.</p>
-    <div class="risk-grid fade-up">
-      <div class="risk-card"><strong>Sécurité</strong><span>Prompt injection, escalade de privilèges, collusion agents</span></div>
-      <div class="risk-card"><strong>Biais algorithmique</strong><span>Discrimination si données d'entraînement biaisées</span></div>
-      <div class="risk-card"><strong>Conformité</strong><span>RGPD, réglementations sectorielles (HIPAA, SOX)</span></div>
-      <div class="risk-card"><strong>Perte de contrôle</strong><span>Dérive d'objectifs, cascading failures entre agents</span></div>
-      <div class="risk-card"><strong>Dépendance excessive</strong><span>Perte de compétences critiques (skill atrophy)</span></div>
-      <div class="risk-card"><strong>Agent sprawl</strong><span>Prolifération non gouvernée créant coûts cachés</span></div>
+    <div class="text-center">
+      <span class="section-label" style="background:rgba(251,113,133,.08);color:var(--rose)">Vigilance</span>
+      <h2 class="section-title reveal">Risques à <span style="color:var(--rose)">Maîtriser</span></h2>
+      <p class="section-sub reveal d1">Adopter l'IA agentique exige une conscience claire des risques.</p>
+    </div>
+    <div class="risk-grid">
+      <div class="risk-card glass reveal d1"><strong>Sécurité</strong><span>Prompt injection, escalade de privilèges, collusion agents</span></div>
+      <div class="risk-card glass reveal d2"><strong>Biais algorithmique</strong><span>Discrimination si données d'entraînement biaisées</span></div>
+      <div class="risk-card glass reveal d1"><strong>Conformité</strong><span>RGPD, réglementations sectorielles (HIPAA, SOX)</span></div>
+      <div class="risk-card glass reveal d2"><strong>Perte de contrôle</strong><span>Dérive d'objectifs, cascading failures entre agents</span></div>
+      <div class="risk-card glass reveal d1"><strong>Dépendance excessive</strong><span>Perte de compétences critiques (skill atrophy)</span></div>
+      <div class="risk-card glass reveal d2"><strong>Agent sprawl</strong><span>Prolifération non gouvernée créant coûts cachés</span></div>
     </div>
   </div>
 </section>
 
 <!-- STRATÉGIES -->
-<section style="background:var(--bg2)">
+<section class="bg-alt">
   <div class="container">
-    <h2 class="section-title fade-up">Stratégies de <span class="gradient-text">Mitigation</span></h2>
-    <div class="strat-grid fade-up" style="margin-top:2rem">
-      <div class="strat-card"><strong>Security-by-design</strong><span>Validation entrées, sandboxing, least privilege</span></div>
-      <div class="strat-card"><strong>Audits algorithmiques</strong><span>Évaluations régulières d'équité et de biais</span></div>
-      <div class="strat-card"><strong>Governance frameworks</strong><span>Conformité dès la conception, traçabilité complète</span></div>
-      <div class="strat-card"><strong>Bounded autonomy</strong><span>Périmètres explicites + circuit breakers</span></div>
-      <div class="strat-card"><strong>Human-in-command</strong><span>Humains = autorité ultime avec capacité override</span></div>
+    <div class="text-center">
+      <span class="section-label" style="background:rgba(45,212,191,.08);color:var(--teal)">Solutions</span>
+      <h2 class="section-title reveal">Stratégies de <span class="gradient-text">Mitigation</span></h2>
+    </div>
+    <div class="strat-grid reveal" style="margin-top:2.5rem">
+      <div class="strat-card glass"><strong>Security-by-design</strong><span>Validation entrées, sandboxing, least privilege</span></div>
+      <div class="strat-card glass"><strong>Audits algorithmiques</strong><span>Évaluations régulières d'équité et de biais</span></div>
+      <div class="strat-card glass"><strong>Governance frameworks</strong><span>Conformité dès la conception, traçabilité complète</span></div>
+      <div class="strat-card glass"><strong>Bounded autonomy</strong><span>Périmètres explicites + circuit breakers</span></div>
+      <div class="strat-card glass"><strong>Human-in-command</strong><span>Humains = autorité ultime avec capacité override</span></div>
     </div>
   </div>
 </section>
@@ -387,9 +559,12 @@ footer{border-top:1px solid rgba(108,92,231,.12);padding:2.5rem 2rem;text-align:
 <!-- FEUILLE DE ROUTE -->
 <section id="roadmap">
   <div class="container">
-    <h2 class="section-title fade-up">Feuille de <span class="gradient-text">Route</span></h2>
-    <p class="section-sub fade-up">Par où commencer ?</p>
-    <div class="roadmap fade-up">
+    <div class="text-center">
+      <span class="section-label" style="background:rgba(129,140,248,.08);color:var(--indigo)">Démarrage</span>
+      <h2 class="section-title reveal">Feuille de <span class="gradient-text">Route</span></h2>
+      <p class="section-sub reveal d1">Par où commencer ?</p>
+    </div>
+    <div class="roadmap reveal">
       <div class="road-step"><div class="road-num">1</div><div class="road-content"><h4>Évaluer</h4><p>Identifier cas d'usage haute valeur, faible risque</p></div></div>
       <div class="road-step"><div class="road-num">2</div><div class="road-content"><h4>Préparer</h4><p>Fondation data, gouvernance, compétences</p></div></div>
       <div class="road-step"><div class="road-num">3</div><div class="road-content"><h4>Piloter</h4><p>Déployer agents périmètre restreint, mesurer ROI</p></div></div>
@@ -406,12 +581,35 @@ footer{border-top:1px solid rgba(108,92,231,.12);padding:2.5rem 2rem;text-align:
   </div>
 </footer>
 
-<!-- SCROLL ANIMATION -->
 <script>
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') });
-}, {threshold:0.12});
-document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+const bar=document.querySelector('.progress-bar');
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  bar.style.width=(window.scrollY/h*100)+'%';
+},{passive:true});
+
+const toggle=document.querySelector('.menu-toggle');
+const menu=document.querySelector('nav ul');
+toggle.addEventListener('click',()=>{toggle.classList.toggle('open');menu.classList.toggle('open')});
+menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{toggle.classList.remove('open');menu.classList.remove('open')}));
+
+const sections=document.querySelectorAll('section[id]');
+const navLinks=document.querySelectorAll('nav a');
+const navObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      navLinks.forEach(l=>l.classList.remove('active'));
+      const link=document.querySelector('nav a[href="#'+e.target.id+'"]');
+      if(link)link.classList.add('active');
+    }
+  });
+},{threshold:.3,rootMargin:'-80px 0px -50% 0px'});
+sections.forEach(s=>navObs.observe(s));
 </script>
 </body>
 </html>
