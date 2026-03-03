@@ -110,11 +110,11 @@
     "badge": "Émergent"
   },
   {
-    "source": "12_Securite_Identite_Conformite.md",
-    "slug": "12-securite-identite-conformite",
+    "source": "12_TBM_CSDM.md",
+    "slug": "12-tbm-csdm",
     "roman": "XII",
-    "title": "Chapitre XII — Sécurité, Identité et Conformité",
-    "shortTitle": "XII. Sécurité, Identité et Conformité",
+    "title": "Chapitre XII — TBM Taxonomy & CSDM",
+    "shortTitle": "XII. TBM Taxonomy & CSDM",
     "category": "transversal",
     "color": "#eab308",
     "badge": "Transversal"

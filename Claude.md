@@ -25,6 +25,7 @@ templates/
   chapter.html            # Template chapitre (sidebar + navigation)
 chapters.json             # Métadonnées : titres, slugs, catégories, couleurs
 build.js                  # Script Node.js de génération statique (149 lignes)
+build.py                  # Script Python alternatif de génération
 docs/                     # HTML généré (sortie) — NE PAS ÉDITER
   public/                 # Assets statiques (PDFs, images, audio)
 public/                   # Assets source
@@ -45,7 +46,7 @@ public/                   # Assets source
 | IX | Architecture de Référence | Transversal |
 | X | Étude de Cas : Order-to-Cash | Transversal |
 | XI | L'Entreprise Agentique | Émergent |
-| XII | Sécurité, Identité et Conformité | Transversal |
+| XII | TBM Taxonomy & CSDM | Transversal |
 
 ## Stack technique
 
