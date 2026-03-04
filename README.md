@@ -120,12 +120,14 @@ La page d'accueil inclut un document de référence sur la stratégie d'outillag
 
 ### Processus
 
-1. **Immersion (Contexte)** — Ingestion du corpus documentaire et briefing structuré (NotebookLM)
-2. **Idéation (Divergence)** — Déconstruction du problème (Gemini), brainstorming collaboratif (Claude CoWork) et validation externe (Perplexity)
-3. **Inception (Convergence)** — Structuration des NFR (Claude Code), analyse FinOps (Perplexity), croisement avec l'existant (Gemini), raisonnement profond (Gemini Deep Think)
-4. **Conception (Architecture)** — Diagrammes C4 et ADR (Claude Code), co-conception (Claude CoWork), Red Teaming (Gemini), vérification formelle (Gemini Deep Think)
-5. **Réalisation (Build)** — Code et tests (Claude Code), pair programming (Claude CoWork), revues croisées (Claude Code/Gemini)
-6. **Capitalisation (Transfert)** — Documentation finale et guides d'onboarding (NotebookLM), validation de cohérence (Gemini Deep Think)
+Cycle de développement assisté par agents IA — de l'intention à la livraison.
+
+1. **Idéation et Recherche** — Intention claire (app, feature, bugfix, refactor). Veille et validation externe (Perplexity), synthèse du corpus existant (NotebookLM). Artefact : `research.md`
+2. **Prototype** — Exploration de variantes quand le jugement humain est important (Claude Code). Brainstorming collaboratif humain-IA (Claude CoWork). Artefact : prototype committé
+3. **PRD (Document de Destination)** — Spécification de l'état final attendu. Red Teaming systématique (Gemini), raisonnement profond sur les compromis (Gemini Deep Think). Artefact : spec validée
+4. **Plan d'Implémentation (Kanban)** — Décomposition en tickets avec dépendances (Claude Code), validation stratégique et détection de goulots (Gemini). Artefact : board de tickets
+5. **Exécution (Boucle d'Agent)** — Boucle de codage sur les tickets (Claude Code), pair programming sur les tickets complexes (Claude CoWork). Phase pouvant tourner en AFK
+6. **QA (Itérative)** — Vérification de cohérence PRD/code (Gemini Deep Think), capitalisation documentaire (NotebookLM). Boucle : planification → exécution → QA → convergence
 
 ## Ressources complémentaires
 

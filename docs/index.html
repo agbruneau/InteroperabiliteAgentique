@@ -1124,42 +1124,43 @@
 
     <!-- 3. Processus -->
     <h3 class="sub-title">3. Processus</h3>
+    <p class="sub-desc">Cycle de développement assisté par agents IA — de l'intention à la livraison.</p>
 
     <div class="phase-grid">
-      <div class="phase-card" style="--phase-color:#ec4899;">
-        <h4>Phase I — Immersion (Contexte)</h4>
-        <p><strong style="color:#ec4899;">NotebookLM</strong> ingère le corpus documentaire existant (normes, ADR précédents, retours d'expérience, standards sectoriels) et produit un briefing structuré. Il identifie les patterns récurrents, les décisions passées et les leçons apprises pour ancrer la réflexion dans l'historique du domaine.</p>
-        <p class="phase-result">Résultat : Un briefing contextuel structuré, synthétisant le corpus existant et les précédents pertinents.</p>
+      <div class="phase-card" style="--phase-color:#06b6d4;">
+        <h4>Phase I — Idéation et Recherche</h4>
+        <p>Partir d'une intention claire : nouvelle app, feature, bugfix ou refactor, de très petit à très gros scope. <strong style="color:#06b6d4;">Perplexity</strong> valide l'état de l'art, les dépendances externes (Stripe, API exotique, service complexe) et les solutions éprouvées dans l'industrie. <strong style="color:#ec4899;">NotebookLM</strong> ingère la documentation existante du domaine et produit un briefing structuré pour ancrer la recherche dans l'historique du projet.</p>
+        <p class="phase-result">Artefact : un research.md dans le repo pour « cacher » la découverte et la rendre accessible aux agents — limité à la durée du sprint pour éviter la pourriture de connaissance.</p>
       </div>
 
       <div class="phase-card" style="--phase-color:#f59e0b;">
-        <h4>Phase II — Idéation (Divergence)</h4>
-        <p>L'architecte initie le cycle avec <strong style="color:#f59e0b;">Gemini</strong> pour déconstruire le problème en composantes fondamentales via un raisonnement First Principles. <strong style="color:#10b981;">Claude CoWork</strong> facilite les sessions de brainstorming collaboratif entre participants humains et IA. <strong style="color:#06b6d4;">Perplexity</strong> vérifie si ces problèmes ont déjà été résolus ailleurs dans l'industrie et identifie les tendances émergentes et les solutions éprouvées.</p>
-        <p class="phase-result">Résultat : Un énoncé de problème validé, décomposé en sous-problèmes et ancré dans l'état de l'art.</p>
-      </div>
-
-      <div class="phase-card" style="--phase-color:#06b6d4;">
-        <h4>Phase III — Inception (Convergence)</h4>
-        <p>Les spécifications sont passées à <strong style="color:#a855f7;">Claude Code</strong> pour structurer les exigences non fonctionnelles. <strong style="color:#06b6d4;">Perplexity</strong> effectue l'analyse FinOps. <strong style="color:#f59e0b;">Gemini</strong> croise les exigences avec l'architecture existante. <strong style="color:#ef4444;">Gemini Deep Think</strong> est mobilisé pour le raisonnement profond sur les contraintes croisées et les compromis non triviaux entre exigences concurrentes.</p>
-        <p class="phase-result">Résultat : Un document de cadrage technique et budgétaire robuste, avec une analyse formelle des compromis.</p>
+        <h4>Phase II — Prototype</h4>
+        <p>Explorer plusieurs options quand le « taste » humain est important (UX, comportement, archi, intégration). <strong style="color:#a855f7;">Claude Code</strong> génère plusieurs variantes sur une route jetable. <strong style="color:#10b981;">Claude CoWork</strong> facilite le brainstorming collaboratif humain-IA pour choisir, raffiner et itérer jusqu'au prototype retenu.</p>
+        <p class="phase-result">Artefact : prototype committé dans le codebase, servant de base à l'implémentation automatisée.</p>
       </div>
 
       <div class="phase-card" style="--phase-color:#a855f7;">
-        <h4>Phase IV — Conception (Architecture)</h4>
-        <p><strong style="color:#a855f7;">Claude Code</strong> génère les diagrammes C4 via PlantUML et rédige les ADR. <strong style="color:#10b981;">Claude CoWork</strong> permet la co-conception en temps réel entre architectes et IA. Chaque décision est soumise à <strong style="color:#f59e0b;">Gemini</strong> pour un Red Teaming impitoyable. <strong style="color:#ef4444;">Gemini Deep Think</strong> intervient pour la vérification formelle des raisonnements architecturaux et la résolution des dilemmes où plusieurs patterns s'affrontent : boucle itérative vers la résilience maximale.</p>
-        <p class="phase-result">Résultat : Un Dossier d'Architecture Technique complet, pré-validé et logiquement vérifié.</p>
+        <h4>Phase III — PRD (Document de Destination)</h4>
+        <p>Décrire l'état final attendu (comportement, ce que voit l'utilisateur), sans figer tous les détails d'implémentation. <strong style="color:#f59e0b;">Gemini</strong> joue le rôle de Red Team pour « griller » chaque décision et contester le design via un raisonnement First Principles. <strong style="color:#ef4444;">Gemini Deep Think</strong> intervient pour le raisonnement profond sur les compromis non triviaux entre exigences concurrentes.</p>
+        <p class="phase-result">Artefact : une spécification de produit claire et validée par confrontation systématique.</p>
+      </div>
+
+      <div class="phase-card" style="--phase-color:#2563eb;">
+        <h4>Phase IV — Plan d'Implémentation (Kanban)</h4>
+        <p><strong style="color:#a855f7;">Claude Code</strong> décompose le PRD en tickets avec relations de blocage (GitHub Issues, Linear, etc.) et identifie les opportunités de parallélisation. <strong style="color:#f59e0b;">Gemini</strong> valide la stratégie de découpage, détecte les goulots d'étranglement et s'assure qu'aucune dépendance critique n'a été omise.</p>
+        <p class="phase-result">Artefact : un board de tickets ordonnés avec dépendances explicites, prêt pour exécution par agents.</p>
       </div>
 
       <div class="phase-card" style="--phase-color:#10b981;">
-        <h4>Phase V — Réalisation (Build)</h4>
-        <p><strong style="color:#a855f7;">Claude Code</strong> produit les squelettes de code et les tests unitaires. <strong style="color:#10b981;">Claude CoWork</strong> orchestre les sessions de pair programming entre développeurs et IA. Les revues de code croisées entre <strong style="color:#a855f7;">Claude Code</strong> et <strong style="color:#f59e0b;">Gemini</strong> garantissent la qualité et la conformité au dossier d'architecture.</p>
-        <p class="phase-result">Résultat : Une solution technique fonctionnelle, testée et conforme au dossier d'architecture.</p>
+        <h4>Phase V — Exécution (Boucle d'Agent)</h4>
+        <p><strong style="color:#a855f7;">Claude Code</strong> exécute la boucle de codage (ex. : boucle Ralph) sur les tickets, souvent de façon séquentielle mais potentiellement en parallèle. <strong style="color:#10b981;">Claude CoWork</strong> orchestre le pair programming humain-IA sur les tickets complexes nécessitant un jugement collaboratif. Avec une bonne recherche, un prototype et un board propre, cette phase peut tourner largement en AFK.</p>
+        <p class="phase-result">Artefact : code implémenté, commité et prêt pour revue.</p>
       </div>
 
       <div class="phase-card" style="--phase-color:#ef4444;">
-        <h4>Phase VI — Capitalisation (Transfert)</h4>
-        <p><strong style="color:#ec4899;">NotebookLM</strong> synthétise la documentation finale à partir du code, des ADR et des spécifications pour produire des guides d'onboarding et des FAQ destinés aux équipes. <strong style="color:#ef4444;">Gemini Deep Think</strong> valide la cohérence globale entre le code livré et les décisions architecturales documentées.</p>
-        <p class="phase-result">Résultat : Une base de connaissances complète, prête pour l'onboarding des équipes et le déploiement.</p>
+        <h4>Phase VI — QA (Itérative)</h4>
+        <p><strong style="color:#ef4444;">Gemini Deep Think</strong> vérifie la cohérence formelle entre le code livré et le PRD, identifie les écarts logiques et génère un plan de QA que l'humain suit. <strong style="color:#ec4899;">NotebookLM</strong> capitalise les résultats en synthétisant la documentation finale et les leçons apprises. La QA crée de nouveaux tickets qui repassent dans la boucle d'exécution.</p>
+        <p class="phase-result">Boucle : planification → exécution → QA → nouveaux tickets → convergence.</p>
       </div>
     </div>
 
