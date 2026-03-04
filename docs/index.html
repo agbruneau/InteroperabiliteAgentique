@@ -1129,7 +1129,7 @@
     <div class="phase-grid">
       <div class="phase-card" style="--phase-color:#06b6d4;">
         <h4>Phase I — Idéation et Recherche</h4>
-        <p>Partir d'une intention claire : nouvelle app, feature, bugfix ou refactor, de très petit à très gros scope. <strong style="color:#06b6d4;">Perplexity</strong> valide l'état de l'art, les dépendances externes (Stripe, API exotique, service complexe) et les solutions éprouvées dans l'industrie. <strong style="color:#ec4899;">NotebookLM</strong> ingère la documentation existante du domaine et produit un briefing structuré pour ancrer la recherche dans l'historique du projet.</p>
+        <p>Partir d'une intention claire : nouvelle app, feature, bugfix ou refactor, de très petit à très gros scope. <strong style="color:#ef4444;">Gemini Deep Think</strong> déconstruit le problème en composantes fondamentales via un raisonnement First Principles. <strong style="color:#06b6d4;">Perplexity</strong> valide l'état de l'art, les dépendances externes (Stripe, API exotique, service complexe) et les solutions éprouvées dans l'industrie. <strong style="color:#ec4899;">NotebookLM</strong> ingère la documentation existante du domaine et produit un briefing structuré pour ancrer la recherche dans l'historique du projet.</p>
         <p class="phase-result">Artefact : un research.md dans le repo pour « cacher » la découverte et la rendre accessible aux agents — limité à la durée du sprint pour éviter la pourriture de connaissance.</p>
       </div>
 
@@ -1141,7 +1141,7 @@
 
       <div class="phase-card" style="--phase-color:#a855f7;">
         <h4>Phase III — PRD (Document de Destination)</h4>
-        <p>Décrire l'état final attendu (comportement, ce que voit l'utilisateur), sans figer tous les détails d'implémentation. <strong style="color:#f59e0b;">Gemini</strong> joue le rôle de Red Team pour « griller » chaque décision et contester le design via un raisonnement First Principles. <strong style="color:#ef4444;">Gemini Deep Think</strong> intervient pour le raisonnement profond sur les compromis non triviaux entre exigences concurrentes.</p>
+        <p>Décrire l'état final attendu (comportement, ce que voit l'utilisateur), sans figer tous les détails d'implémentation. <strong style="color:#f59e0b;">Gemini</strong> joue le rôle de Red Team pour « griller » chaque décision et contester le design via un raisonnement First Principles. <strong style="color:#ef4444;">Gemini Deep Think</strong> intervient pour le raisonnement profond sur les compromis non triviaux entre exigences concurrentes. <strong style="color:#10b981;">Claude CoWork</strong> facilite la co-rédaction collaborative humain-IA du PRD pour aligner vision produit et faisabilité technique.</p>
         <p class="phase-result">Artefact : une spécification de produit claire et validée par confrontation systématique.</p>
       </div>
 
@@ -1159,7 +1159,7 @@
 
       <div class="phase-card" style="--phase-color:#ef4444;">
         <h4>Phase VI — QA (Itérative)</h4>
-        <p><strong style="color:#ef4444;">Gemini Deep Think</strong> vérifie la cohérence formelle entre le code livré et le PRD, identifie les écarts logiques et génère un plan de QA que l'humain suit. <strong style="color:#ec4899;">NotebookLM</strong> capitalise les résultats en synthétisant la documentation finale et les leçons apprises. La QA crée de nouveaux tickets qui repassent dans la boucle d'exécution.</p>
+        <p><strong style="color:#a855f7;">Claude Code</strong> exécute les tests automatisés et vérifie la conformité du code livré au PRD. <strong style="color:#10b981;">Claude CoWork</strong> facilite la revue collaborative humain-IA pour identifier les écarts logiques et valider la qualité. <strong style="color:#f59e0b;">Gemini</strong> génère un plan de QA structuré et conteste les résultats via un regard critique externe. La QA crée de nouveaux tickets qui repassent dans la boucle d'exécution.</p>
         <p class="phase-result">Boucle : planification → exécution → QA → nouveaux tickets → convergence.</p>
       </div>
     </div>

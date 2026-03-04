@@ -122,12 +122,12 @@ La page d'accueil inclut un document de référence sur la stratégie d'outillag
 
 Cycle de développement assisté par agents IA — de l'intention à la livraison.
 
-1. **Idéation et Recherche** — Intention claire (app, feature, bugfix, refactor). Veille et validation externe (Perplexity), synthèse du corpus existant (NotebookLM). Artefact : `research.md`
+1. **Idéation et Recherche** — Intention claire (app, feature, bugfix, refactor). Raisonnement First Principles (Gemini Deep Think), veille et validation externe (Perplexity), synthèse du corpus existant (NotebookLM). Artefact : `research.md`
 2. **Prototype** — Exploration de variantes quand le jugement humain est important (Claude Code). Brainstorming collaboratif humain-IA (Claude CoWork). Artefact : prototype committé
-3. **PRD (Document de Destination)** — Spécification de l'état final attendu. Red Teaming systématique (Gemini), raisonnement profond sur les compromis (Gemini Deep Think). Artefact : spec validée
+3. **PRD (Document de Destination)** — Spécification de l'état final attendu. Red Teaming systématique (Gemini), raisonnement profond sur les compromis (Gemini Deep Think), co-rédaction collaborative (Claude CoWork). Artefact : spec validée
 4. **Plan d'Implémentation (Kanban)** — Décomposition en tickets avec dépendances (Claude Code), validation stratégique et détection de goulots (Gemini). Artefact : board de tickets
 5. **Exécution (Boucle d'Agent)** — Boucle de codage sur les tickets (Claude Code), pair programming sur les tickets complexes (Claude CoWork). Phase pouvant tourner en AFK
-6. **QA (Itérative)** — Vérification de cohérence PRD/code (Gemini Deep Think), capitalisation documentaire (NotebookLM). Boucle : planification → exécution → QA → convergence
+6. **QA (Itérative)** — Tests automatisés et conformité PRD/code (Claude Code), revue collaborative (Claude CoWork), plan de QA et regard critique externe (Gemini). Boucle : planification → exécution → QA → convergence
 
 ## Ressources complémentaires
 
