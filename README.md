@@ -39,7 +39,7 @@ La page d'accueil présente les six piliers de l'architecture de domaine :
 - **Résilience et observabilité** — OpenTelemetry, traçage distribué, tolérance aux pannes
 - **Étude de cas** — Processus Order-to-Cash de bout en bout
 - **Entreprise agentique** — Agents IA comme orchestrateurs d'intégration
-- **TBM Taxonomy & CSDM** — Classification financière des services d'intégration, modèle CSDM, allocation des coûts, gouvernance FinOps
+- **FINOPS — TBM & CSDM** — Classification financière des services d'intégration, modèle CSDM, allocation des coûts, gouvernance FinOps
 
 ## Technologies référencées
 
@@ -101,7 +101,7 @@ Puis ouvrir http://localhost:3000 dans le navigateur.
 | IX       | Architecture de Référence       |
 | X        | Étude de Cas : Order-to-Cash     |
 | XI       | L'Entreprise Agentique            |
-| XII      | TBM Taxonomy & CSDM              |
+| XII      | FINOPS — TBM & CSDM              |
 
 ## Architecte assisté des outils IA
 

@@ -1,4 +1,4 @@
-# Documentation des services d'intégration d'entreprise — TBM Taxonomy & CSDM
+# FINOPS — TBM & CSDM
 
 ## Introduction et cadre conceptuel
 

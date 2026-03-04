@@ -110,11 +110,11 @@
     "badge": "Émergent"
   },
   {
-    "source": "12_TBM_CSDM.md",
-    "slug": "12-tbm-csdm",
+    "source": "12_FINOPS_TBM_CSDM.md",
+    "slug": "12-finops-tbm-csdm",
     "roman": "XII",
-    "title": "Chapitre XII — TBM Taxonomy & CSDM",
-    "shortTitle": "XII. TBM Taxonomy & CSDM",
+    "title": "Chapitre XII — FINOPS — TBM & CSDM",
+    "shortTitle": "XII. FINOPS — TBM & CSDM",
     "category": "transversal",
     "color": "#eab308",
     "badge": "Transversal"
