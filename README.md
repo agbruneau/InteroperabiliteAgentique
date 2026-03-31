@@ -39,6 +39,7 @@ La page d'accueil présente les six piliers de l'architecture de domaine :
 - **Résilience et observabilité** — OpenTelemetry, traçage distribué, tolérance aux pannes
 - **Étude de cas** — Processus Order-to-Cash de bout en bout
 - **Entreprise agentique** — Agents IA comme orchestrateurs d'intégration
+- **Maîtrise de Claude Code** — Les 6 niveaux de progression, du prompteur au système d'agents autonomes 24/7
 - **FINOPS — TBM & CSDM** — Classification financière des services d'intégration, modèle CSDM, allocation des coûts, gouvernance FinOps
 
 ## Technologies référencées
@@ -129,6 +130,21 @@ Cycle de développement assisté par agents IA — de l'intention à la livraiso
 5. **Exécution (Boucle d'Agent)** — Boucle de codage sur les tickets (Claude Code), pair programming sur les tickets complexes (Claude CoWork). Phase pouvant tourner en AFK
 6. **QA (Itérative)** — Tests automatisés et conformité PRD/code (Claude Code), revue collaborative (Claude CoWork), plan de QA et regard critique externe (Gemini). Boucle : planification → exécution → QA → convergence
 
+### Les 6 Niveaux de Maîtrise de Claude Code
+
+Modèle de progression pour Claude Code — de l'utilisation naïve jusqu'au déploiement de systèmes d'agents autonomes.
+
+| Niveau | Profil | Métaphore | Valeur créée |
+| ------ | ---------------------- | ----------------------- | ------------------------------------------- |
+| 1      | Prompteur              | Stagiaire               | Code générique fonctionnel                  |
+| 2      | Planificateur          | Chef de projet          | Code aligné sur les objectifs               |
+| 3      | Ingénieur Contexte     | Administrateur système  | Sessions stables sur projets longs          |
+| 4      | Skill Builder          | Architecte de workflows | Réutilisabilité, standardisation            |
+| 5      | Multi-Agent            | Chef d'orchestre        | Parallélisme, 5-10x productivité           |
+| 6      | Agent Autonome         | CTO agentique           | Systèmes auto-opérants 24/7                |
+
+Ressource : [Anthropic Learn](https://www.anthropic.com/learn)
+
 ## Ressources complémentaires
 
 La page d'accueil donne accès aux ressources suivantes :
@@ -143,6 +159,7 @@ La page d'accueil donne accès aux ressources suivantes :
 
 - **[Auto Claude — Pilotage Agentique](https://github.com/AndyMik90/Auto-Claude)** — Cadre de pilotage agentique avec Claude
 - **[Anthropic Skills](https://github.com/anthropics/skills)** — Collection de skills pour Claude Code
+- **[Anthropic Learn](https://www.anthropic.com/learn)** — Ressources officielles Anthropic pour approfondir la maîtrise de Claude
 
 ## Modifier le contenu
 

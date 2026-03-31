@@ -1164,9 +1164,91 @@
       </div>
     </div>
 
-    <!-- 4. Conclusion -->
-    <div class="callout" style="border-left-color:#a855f7;">
-      <h3>4. Conclusion</h3>
+    <!-- 4. 6 Niveaux de Maîtrise de Claude Code -->
+    <h3 class="sub-title">4. 6 Niveaux de Maîtrise de Claude Code</h3>
+    <div class="ai-intro" style="border-left-color:#a855f7;">
+      <p>Claude Code n'est pas un simple assistant de code : c'est une <strong>plateforme d'ingénierie agentique</strong> dont la valeur croît exponentiellement à mesure que le développeur monte en maîtrise. Ce modèle de progression en six niveaux — du chatbot terminal jusqu'au déploiement de systèmes d'agents autonomes opérant 24/7 — décrit la trajectoire complète de l'architecte augmenté.</p>
+      <p><em>«&nbsp;La différence entre le niveau 1 et le niveau 6, c'est la différence entre un stagiaire et un CTO.&nbsp;»</em></p>
+      <p>Pour approfondir les fondamentaux et les ressources officielles d'Anthropic : <a href="https://www.anthropic.com/learn" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:underline;">Anthropic&nbsp;Learn&nbsp;→</a></p>
+    </div>
+
+    <div class="domain-grid" style="margin-bottom:2rem;">
+      <div class="card card-static" style="--card-accent:#64748b;">
+        <div class="domain-header">
+          <span class="domain-num" style="background:#64748b;">1</span>
+          <h3>Prompteur</h3>
+        </div>
+        <p class="card-desc"><strong>Le ChatGPT du terminal.</strong> Usage naïf : prompts bruts, génériques, sans contexte projet. Produit du code fonctionnel mais systématiquement générique (<em>vibe coding</em>).</p>
+        <ul class="card-list">
+          <li><strong>Piège :</strong> Confortable mais limitant — context rot prématuré, pas de mémoire institutionnelle.</li>
+          <li><strong>Métaphore :</strong> Stagiaire — zéro investissement, zéro différenciation.</li>
+        </ul>
+      </div>
+
+      <div class="card card-static" style="--card-accent:#06b6d4;">
+        <div class="domain-header">
+          <span class="domain-num" style="background:#06b6d4;">2</span>
+          <h3>Planificateur</h3>
+        </div>
+        <p class="card-desc"><strong>La pensée avant l'action.</strong> Utilisation systématique du <em>plan mode</em> (<code>Shift+Tab</code>) et du fichier <code>CLAUDE.md</code>. Peer review artificielle et méthodologies structurées (PRD, BMAD).</p>
+        <ul class="card-list">
+          <li><strong>Outil clé :</strong> Plan Mode, Rewind, PRD — investir dans le plan pour que Claude réalise en un seul passage.</li>
+          <li><strong>Métaphore :</strong> Chef de projet — code aligné sur les objectifs.</li>
+        </ul>
+      </div>
+
+      <div class="card card-static" style="--card-accent:#2563eb;">
+        <div class="domain-header">
+          <span class="domain-num" style="background:#2563eb;">3</span>
+          <h3>Ingénieur Contexte</h3>
+        </div>
+        <p class="card-desc"><strong>La gestion de la fenêtre.</strong> Compréhension systémique de la fenêtre de contexte (200K–1M tokens). Maîtrise du <em>context rot</em> et rotation proactive avant saturation.</p>
+        <ul class="card-list">
+          <li><strong>Outils :</strong> <code>/compact</code>, <code>/clear</code>, <code>/context</code>, CLAUDE.md, MEMORY.md.</li>
+          <li><strong>Métaphore :</strong> Administrateur système — sessions stables sur projets longs.</li>
+        </ul>
+      </div>
+
+      <div class="card card-static" style="--card-accent:#a855f7;">
+        <div class="domain-header">
+          <span class="domain-num" style="background:#a855f7;">4</span>
+          <h3>Skill Builder</h3>
+        </div>
+        <p class="card-desc"><strong>L'automatisation par composition.</strong> Toute action effectuée deux fois mérite un <em>skill</em> — fichier Markdown structuré dans <code>.claude/skills/</code>. Skills V2 : context fork, hooks, modèle dédié.</p>
+        <ul class="card-list">
+          <li><strong>Exemples :</strong> /commit-push-pr, /task-hunter, /bug-hunter, security audit, tech-debt.</li>
+          <li><strong>Métaphore :</strong> Architecte de workflows — réutilisabilité, standardisation.</li>
+        </ul>
+      </div>
+
+      <div class="card card-static" style="--card-accent:#f59e0b;">
+        <div class="domain-header">
+          <span class="domain-num" style="background:#f59e0b;">5</span>
+          <h3>Multi-Agent</h3>
+        </div>
+        <p class="card-desc"><strong>L'architecte orchestrateur.</strong> Plusieurs agents en parallèle sur des branches isolées via Git Worktrees. Mode Swarm (Leader-Teammates) avec coordination automatique, task lists et inboxes.</p>
+        <ul class="card-list">
+          <li><strong>Gains :</strong> 5x à 10x en efficacité — consommation de tokens accrue mais productivité inégalée.</li>
+          <li><strong>Métaphore :</strong> Chef d'orchestre — parallélisme structuré.</li>
+        </ul>
+      </div>
+
+      <div class="card card-static" style="--card-accent:#10b981;">
+        <div class="domain-header">
+          <span class="domain-num" style="background:#10b981;">6</span>
+          <h3>Agent Autonome</h3>
+        </div>
+        <p class="card-desc"><strong>Le système 24/7.</strong> Les agents signalent proactivement des événements, exécutent des tâches planifiées et opèrent sans intervention humaine. Autonomie encadrée par skills, hooks et permissions MCP.</p>
+        <ul class="card-list">
+          <li><strong>Cas d'usage :</strong> Code review automatique, audit de sécurité, monitoring, gestion de backlog.</li>
+          <li><strong>Métaphore :</strong> CTO agentique — infrastructure vivante auto-opérante.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 5. Conclusion -->
+    <h3 class="sub-title">5. Conclusion</h3>
+    <div class="ai-intro" style="border-left-color:#a855f7;">
       <p>
         L'utilisation isolée d'une IA générative produit souvent du contenu générique. L'orchestration stratégique de <strong style="color:#06b6d4;">Perplexity</strong>, <strong style="color:#f59e0b;">Gemini</strong>, <strong style="color:#a855f7;">Claude Code</strong>, <strong style="color:#10b981;">Claude CoWork</strong>, <strong style="color:#ec4899;">NotebookLM</strong> et <strong style="color:#ef4444;">Gemini Deep Think</strong> crée une chaîne de valeur où chaque outil compense les faiblesses de l'autre.
       </p>
@@ -1175,6 +1257,11 @@
       </p>
     </div>
   </section>
+
+  <!-- ════════ LIENS PAPERCLIP ════════ -->
+  <nav class="links-bar">
+    <a href="https://paperclip.ing/" target="_blank" rel="noopener">Paperclip</a>
+  </nav>
 
   <!-- ════════ POSTER GALLERY ════════ -->
   <div class="poster-gallery">
