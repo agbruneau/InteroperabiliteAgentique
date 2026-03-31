@@ -29,6 +29,27 @@ La page d'accueil présente les six piliers de l'architecture de domaine :
 | **Fiabiliser**   | Garantir la sécurité, la résilience et l'exploitabilité en production                 |
 | **Optimiser**    | Approche FinOps, gestion du cycle de vie et évaluation des fournisseurs                  |
 
+## Niveaux de maturité de l'Interopérabilité
+
+La page d'accueil présente également les six niveaux de maturité de l'interopérabilité, du technique jusqu'à l'agentique :
+
+| Niveau | Nom                        | Périmètre                                                                  |
+| ------ | -------------------------- | -------------------------------------------------------------------------- |
+| 1      | Technique                  | Protocoles, connectivité, chiffrement, authentification                    |
+| 2      | Structurelle / Syntaxique  | Schémas, formats, contraintes de type (XML/JSON, FHIR, EDI)              |
+| 3      | Sémantique                 | Vocabulaires partagés, ontologies, modèles métier                        |
+| 4      | Organisationnelle          | Processus métier, rôles, responsabilités, gouvernance partagée           |
+| 5      | Juridique                  | Cadres légaux, protection des données, normes sectorielles (EIF)         |
+| 6      | Agentique                  | Agents autonomes, protocoles A2A/MCP, coopération émergente              |
+
+## Corpus
+
+La page d'accueil inclut une section « Corpus » renvoyant vers les volumes du [Corpus Informatique](https://agbruneau.github.io/CorpusInformatique/) :
+
+- **I — Science et Génie Informatique** — Fondements Logiques et Raisonnement Formel
+- **II — Interopérabilité** — Introduction et Problématique
+- **III — Entreprise Agentique** — Crise de l'Intégration Systémique
+
 ## Sujets couverts
 
 - **Fondements théoriques** — Théorème CAP, modèle PACELC, couplage spatio-temporel, System of Record
@@ -49,12 +70,14 @@ Apache Kafka, RabbitMQ, Apache Pulsar, Apache Iceberg, PostgreSQL, MongoDB, Clic
 ## Structure du projet
 
 ```
-├── Chapitres-Volumes/      # Fichiers sources Markdown (11 chapitres + annexes)
+├── Chapitres-Volumes/      # Fichiers sources Markdown (12 chapitres + annexes)
+│   └── Corpus/             # Corpus de référence
 ├── templates/              # Templates HTML (accueil et chapitres)
 ├── chapters.json           # Métadonnées des chapitres (titres, slugs, catégories)
 ├── build.js                # Script de génération des pages HTML (Node.js)
 ├── build.py                # Script de génération alternatif (Python)
 ├── package.json            # Dépendances Node.js
+├── Claude.md               # Instructions de contexte pour Claude Code
 ├── .gitignore              # Exclusions Git (node_modules)
 └── docs/                   # Pages HTML générées (servies par GitHub Pages)
     └── public/             # Assets statiques (PDF, posters, podcast)
@@ -108,7 +131,11 @@ Puis ouvrir http://localhost:3000 dans le navigateur.
 
 La page d'accueil inclut un document de référence sur la stratégie d'outillage IA, structuré autour de six rôles spécialisés et un processus en six phases.
 
-### Rôles (Casting)
+### 1. Chaîne de Valeur Cognitive
+
+L'émergence des modèles de langage (LLM) offre une opportunité inédite : non pas remplacer l'architecte, mais **l'augmenter** en lui fournissant une équipe virtuelle spécialisée. Cette méthodologie opérationnelle est fondée sur l'orchestration de six IA distinctes, alignée sur un cycle de vie Agile (Dual-Track).
+
+### 2. Rôles (Casting)
 
 | Rôle         | Outil             | Fonction                                                                |
 | ------------- | ----------------- | ----------------------------------------------------------------------- |
@@ -119,7 +146,7 @@ La page d'accueil inclut un document de référence sur la stratégie d'outillag
 | Synthétiseur | NotebookLM        | Synthèse documentaire, assimilation de sources, podcasts synthétiques |
 | Penseur       | Gemini Deep Think | Raisonnement profond, vérification formelle, résolution de dilemmes   |
 
-### Processus
+### 3. Processus
 
 Cycle de développement assisté par agents IA — de l'intention à la livraison.
 
@@ -130,7 +157,7 @@ Cycle de développement assisté par agents IA — de l'intention à la livraiso
 5. **Exécution (Boucle d'Agent)** — Boucle de codage sur les tickets (Claude Code), pair programming sur les tickets complexes (Claude CoWork). Phase pouvant tourner en AFK
 6. **QA (Itérative)** — Tests automatisés et conformité PRD/code (Claude Code), revue collaborative (Claude CoWork), plan de QA et regard critique externe (Gemini). Boucle : planification → exécution → QA → convergence
 
-### Les 6 Niveaux de Maîtrise de Claude Code
+### 4. Les 6 Niveaux de Maîtrise de Claude Code
 
 Modèle de progression pour Claude Code — de l'utilisation naïve jusqu'au déploiement de systèmes d'agents autonomes.
 
@@ -143,6 +170,10 @@ Modèle de progression pour Claude Code — de l'utilisation naïve jusqu'au dé
 | 5      | Multi-Agent            | Chef d'orchestre        | Parallélisme, 5-10x productivité           |
 | 6      | Agent Autonome         | CTO agentique           | Systèmes auto-opérants 24/7                |
 
+### 5. Conclusion
+
+L'orchestration stratégique de Perplexity, Gemini, Claude Code, Claude CoWork, NotebookLM et Gemini Deep Think crée une chaîne de valeur où chaque outil compense les faiblesses de l'autre. Cette approche permet à l'architecte de passer plus de temps sur l'intention et le design, et moins sur la syntaxe et la mise en forme — c'est le fondement de l'ingénierie augmentée.
+
 Ressource : [Anthropic Learn](https://www.anthropic.com/learn)
 
 ## Ressources complémentaires
@@ -154,6 +185,14 @@ La page d'accueil donne accès aux ressources suivantes :
 - **[Monographie — L&#39;Entreprise Agentique (PDF)](https://agbruneau.github.io/InteroperabiliteAgentique/public/Monographie%20-%20Entreprise%20Agentique.pdf)** — Monographie complète sur l'entreprise agentique
 - **[Podcast (M4A)](https://agbruneau.github.io/InteroperabiliteAgentique/public/PodCast.m4a)** — Version audio de la présentation
 - **Posters** — Blueprints de l'Entreprise Moderne (Poster 1 à 6)
+
+## Liens encyclopédiques
+
+La page d'accueil inclut des liens vers des ressources encyclopédiques externes :
+
+- **[Wikipedia](https://en.wikipedia.org/)** — Encyclopédie en ligne
+- **[Grokipedia](https://grokipedia.com/)** — Encyclopédie alimentée par Grok
+- **[Paperclip](https://paperclip.ing/)** — Outil de productivité IA
 
 ## Projets connexes
 
