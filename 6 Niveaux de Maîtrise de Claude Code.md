@@ -6,6 +6,8 @@ Claude Code n'est pas un simple assistant de code : c'est une plateforme d'ingé
 
 Ce cadre de référence s'inscrit dans un contexte plus large : début 2026, une étude portant sur 129 134 projets GitHub estime le taux d'adoption des agents de codage entre 15,85% et 22,60%, un chiffre qualifié d'«extraordinairement élevé pour une technologie vieille de quelques mois». Claude Code, GitHub Copilot Agent Mode et Cursor constituent les principaux représentants d'une catégorie en pleine émergence. Maîtriser ces six niveaux devient ainsi un impératif de compétitivité professionnelle.[^2][^3]
 
+Hyperlien : https://www.anthropic.com/learn
+
 ***
 
 ## Niveau 1 — Prompteur : le ChatGPT du terminal
