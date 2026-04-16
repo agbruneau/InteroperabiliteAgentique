@@ -42,13 +42,6 @@ La page d'accueil présente également les six niveaux de maturité de l'interop
 | 5      | Juridique                  | Cadres légaux, protection des données, normes sectorielles (EIF)         |
 | 6      | Agentique                  | Agents autonomes, protocoles A2A/MCP, coopération émergente              |
 
-## Corpus
-
-La page d'accueil inclut une section « Corpus » renvoyant vers les volumes du [Corpus Informatique](https://agbruneau.github.io/CorpusInformatique/) :
-
-- **I — Science et Génie Informatique** — Fondements Logiques et Raisonnement Formel
-- **II — Interopérabilité** — Introduction et Problématique
-- **III — Entreprise Agentique** — Crise de l'Intégration Systémique
 
 ## Sujets couverts
 
@@ -71,7 +64,7 @@ Apache Kafka, RabbitMQ, Apache Pulsar, Apache Iceberg, PostgreSQL, MongoDB, Clic
 
 ```
 ├── Chapitres-Volumes/      # Fichiers sources Markdown (12 chapitres + annexes)
-│   └── Corpus/             # Corpus de référence
+
 ├── templates/              # Templates HTML (accueil et chapitres)
 ├── chapters.json           # Métadonnées des chapitres (titres, slugs, catégories)
 ├── build.js                # Script de génération des pages HTML (Node.js)
